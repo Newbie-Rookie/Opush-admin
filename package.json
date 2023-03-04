@@ -23,5 +23,9 @@
     "morgan": "^1.10.0",
     "nodemon": "^2.0.7",
     "reload": "^3.1.1"
+  },
+  "dependencies": {
+    "node-localstorage": "^2.2.1",
+    "request": "^2.88.2"
   }
 }

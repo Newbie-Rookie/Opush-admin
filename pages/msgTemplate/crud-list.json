@@ -1,0 +1,242 @@
+{
+  "type": "page",
+  "title": "消息模板列表",
+  "body": [
+    {
+      "type": "crud",
+      "api": "${ls:backend_url}/messageTemplate/list?page=${page}&perPage=${perPage}&keywords=${keywords}&creator=${ls:openId}",
+      "bodyClassName": "panel-default",
+      "syncLocation": false,
+      "name": "sample",
+      "footerToolbar": [
+        "switch-per-page",
+        "pagination"
+      ],
+      "filter": {
+        "title": "",
+        "mode": "inline",
+        "wrapWithPanel": false,
+        "submitText": "",
+        "className": "m-b-sm",
+        "body": [
+          {
+            "type": "input-text",
+            "name": "keywords",
+            "placeholder": "通过关键字搜索",
+            "addOn": {
+              "label": "搜索",
+              "type": "submit",
+              "className": "btn-success"
+            },
+            "clearable": true,
+            "size": "lg"
+          }
+        ]
+      },
+      "bulkActions": [
+        {
+          "label": "批量删除",
+          "type": "button",
+          "level": "danger",
+          "actionType": "ajax",
+          "api": "delete:${ls:backend_url}/messageTemplate/delete/$ids",
+          "confirmText": "确定要批量删除?"
+        }
+      ],
+      "columns": [
+        {
+          "name": "id",
+          "label": "ID",
+          "width": 20,
+          "sortable": true
+        },
+        {
+          "name": "name",
+          "label": "模板消息名"
+        },
+        {
+          "name": "sendChannel",
+          "label": "发送渠道",
+          "type": "mapping",
+          "map": {
+            "20": "PUSH通知栏",
+            "30": "短信",
+            "40": "邮箱",
+            "50": "微信服务号（模板消息）",
+            "60": "微信小程序（订阅消息）",
+            "70": "企业微信（应用消息）",
+            "80": "钉钉群机器人",
+            "90": "钉钉工作消息",
+            "100": "企业微信（机器人）",
+            "110": "飞书机器人"
+          }
+        },
+        {
+          "name": "templateType",
+          "label": "模板类型",
+          "type": "mapping",
+          "map": {
+            "10": "定时任务发送",
+            "20": "实时调用接口"
+          }
+        },
+        {
+          "name": "msgType",
+          "label": "消息类型",
+          "type": "mapping",
+          "map": {
+            "10": "通知类",
+            "20": "营销类",
+            "30": "验证码"
+          }
+        },
+        {
+          "name": "creator",
+          "label": "创建者"
+        },
+        {
+          "name": "idType",
+          "label": "接收者ID类型",
+          "type": "mapping",
+          "map": {
+            "10": "用户ID",
+            "20": "设备号",
+            "30": "手机号",
+            "40": "openId",
+            "50": "邮箱地址",
+            "60": "企业微信userId",
+            "70": "钉钉userId",
+            "80": "推送通知栏cid",
+            "90": "飞书userId"
+          }
+        },
+        {
+          "type": "operation",
+          "label": "操作",
+          "width": "",
+          "buttons": [
+            {
+              "type": "button-group",
+              "buttons": [
+                {
+                  "type": "button",
+                  "label": "测试",
+                  "level": "primary",
+                  "initApi": "post:${ls:backend_url}/messageTemplate/query/$id",
+                  "actionType": "dialog",
+                  "dialog": {
+                    "title": "测试一条消息",
+                    "body": {
+                      "type": "form",
+                      "api": {
+                        "url": "${ls:backend_url}/messageTemplate/test",
+                        "method": "post",
+                        "requestAdaptor": "api.data.msgContent = JSON.stringify(api.data.testParam[0])\nreturn api;",
+                        "data": {
+                          "id": "${id}",
+                          "receiver": "${receiver}",
+                          "testParam": "${testParam}"
+                        }
+                      },
+                      "body": [
+                        {
+                          "type": "input-text",
+                          "name": "receiver",
+                          "label": "接收者",
+                          "required": true,
+                          "description": "<font color=\"#990000\">模板存在占位符。</br>请点击【新增】填入文案测试下发！</font>"
+                        },
+                        {
+                          "type": "service",
+                          "schemaApi": "${ls:backend_url}/messageTemplate/test/content?id=${id}"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "type": "button",
+                  "label": "查看",
+                  "level": "primary",
+                  "actionType": "link",
+                  "link": "/crud/${id}"
+                },
+                {
+                  "type": "button",
+                  "label": "修改",
+                  "level": "info",
+                  "actionType": "link",
+                  "link": "/crud/${id}/edit"
+                },
+                {
+                  "type": "button",
+                  "label": "启动",
+                  "level": "success",
+                  "actionType": "ajax",
+                  "confirmText": "您确认要启动吗?",
+                  "api": "post:${ls:backend_url}/messageTemplate/start/$id",
+                  "visibleOn": "this.templateType==10 && this.msgStatus!=30"
+                },
+                {
+                  "type": "button",
+                  "label": "停止",
+                  "level": "success",
+                  "actionType": "ajax",
+                  "confirmText": "您确认要暂停吗?",
+                  "api": "post:${ls:backend_url}/messageTemplate/stop/$id",
+                  "visibleOn": "this.templateType==10 && this.msgStatus==30"
+                },
+                {
+                  "type": "button",
+                  "label": "复制",
+                  "level": "warning",
+                  "actionType": "ajax",
+                  "confirmText": "您确认要复制?",
+                  "api": "post:${ls:backend_url}/messageTemplate/copy/$id"
+                },
+                {
+                  "type": "button",
+                  "label": "撤回",
+                  "level": "danger",
+                  "actionType": "ajax",
+                  "confirmText": "您确认要撤回?",
+                  "api": "post:${ls:backend_url}/messageTemplate/recall/$id"
+                },
+                {
+                  "type": "button",
+                  "label": "删除",
+                  "level": "danger",
+                  "actionType": "ajax",
+                  "confirmText": "您确认要删除?",
+                  "api": "delete:${ls:backend_url}/messageTemplate/delete/$id"
+                }
+              ]
+            }
+          ],
+          "placeholder": "-",
+          "fixed": "right"
+        }
+      ],
+      "affixHeader": true,
+      "columnsTogglable": "auto",
+      "placeholder": "暂无数据",
+      "tableClassName": "table-db table-striped",
+      "headerClassName": "crud-table-header",
+      "footerClassName": "crud-table-footer",
+      "toolbarClassName": "crud-table-toolbar",
+      "combineNum": 0
+    }
+  ],
+  "toolbar": [
+    {
+      "type": "button",
+      "actionType": "link",
+      "link": "/crud/new",
+      "label": "新增",
+      "icon": "fa fa-plus",
+      "primary": true
+    }
+  ],
+  "remark": null,
+  "name": "page-demo"
+}

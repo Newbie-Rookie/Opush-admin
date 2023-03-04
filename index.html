@@ -2,41 +2,23 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>amis admin</title>
+    <title>Opush</title>
+
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <link
-      rel="stylesheet"
-      title="default"
-      href="https://unpkg.com/amis@beta/sdk/sdk.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/amis@beta/sdk/helper.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/amis@beta/sdk/iconfont.css"
-    />
+
+    <link rel="icon" href="./public/images/logo.png">
+    <link rel="stylesheet" title="default" href="https://unpkg.com/amis@beta/sdk/sdk.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/amis@beta/sdk/helper.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/amis@beta/sdk/iconfont.css"/>
+    <link rel="stylesheet" href="./public/css/index.css"/>
+
     <script src="https://unpkg.com/amis@beta/sdk/sdk.js"></script>
     <script src="https://unpkg.com/vue@2"></script>
-    <script src="https://unpkg.com/history@4.10.1
-/umd/history.js"></script>
-    <style>
-      html,
-      body,
-      .app-wrapper {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-    </style>
+    <script src="https://unpkg.com/history@4.10.1/umd/history.js"></script>
+    <script src="./public/js/jquery-3.6.0.min.js"></script>
+    <script src="./public/js/index.js"></script>
   </head>
   <body>
     <div id="root" class="app-wrapper"></div>
@@ -51,13 +33,15 @@
 
         const app = {
           type: 'app',
-          brandName: 'Admin',
-          logo: '/public/logo.png',
+          brandName: 'Opush',
+          logo: './public/images/logo.png',
           header: {
             type: 'tpl',
             inline: false,
             className: 'w-full',
-            tpl: '<div class="flex justify-between"><div>顶部区域左侧</div><div>顶部区域右侧</div></div>'
+            tpl: '<div class="flex justify-left">' +
+                    '<div id="phone">${ls:phone}</div>' +
+                    '<input type="button" id="logout" value="退出登录" /></div>'
           },
           // footer: '<div class="p-2 text-center bg-light">底部区域</div>',
           // asideBefore: '<div class="p-2 text-center">菜单前面区域</div>',

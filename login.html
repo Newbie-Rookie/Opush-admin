@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OPush</title>
+    <link rel="icon" href="./public/images/logo.png">
+    <link rel="stylesheet" href="./public/css/login.css"/>
+    <script src="https://kit.fontawesome.com/4a4ce6258d.js" crossorigin="anonymous"></script>
+    <script src="./public/js/jquery-3.6.0.min.js"></script>
+    <script src="./public/js/login.js"></script>
+</head>
+<body>
+    <div id="bigBox">
+        <h1>OPush</h1>
+        <div class="inputBox">
+            <div class="inputText">
+                <div>
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="phone" placeholder="请输入手机号">
+                    <p id="phoneMsg"></p>
+                </div>
+                <div>
+                    <i class="fas fa-lock"></i>
+                    <input type="text" id="code" placeholder="请输入验证码" disabled>
+                    <input type="button" id="send" value="获取验证码" >
+                    <p id="codeMsg">请先获取验证码!</p>
+                </div>
+            </div>
+            <div>
+                <input type="button" id="submit" value="登录 / 注册">
+            </div>
+            <div class="tips">
+                <i class="fa fa-envira"> 用户首次登录自动注册!</i>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

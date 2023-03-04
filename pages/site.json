@@ -6,119 +6,123 @@
       {
         "label": "Home",
         "url": "/",
-        "redirect": "/index/1"
+        "redirect": "/user/login"
       },
       {
-        "label": "示例",
+        "label": "模板管理",
         "children": [
           {
-            "label": "页面A",
-            "url": "index",
-            "schema": {
-              "type": "page",
-              "title": "页面A",
-              "body": "页面A"
-            },
+            "label": "消息模板管理",
+            "icon": "fa fa-align-center",
             "children": [
               {
-                "label": "页面A-1",
-                "url": "1",
-                "schema": {
-                  "type": "page",
-                  "title": "页面A-1",
-                  "body": "页面A-1"
-                }
-              },
-              {
-                "label": "页面A-2",
-                "url": "2",
-                "schema": {
-                  "type": "page",
-                  "title": "页面A-2",
-                  "body": "页面A-2"
-                }
-              },
-              {
-                "label": "页面A-3",
-                "url": "3",
-                "schema": {
-                  "type": "page",
-                  "title": "页面A-3",
-                  "body": "页面A-3"
-                }
-              }
-            ]
-          },
-          {
-            "label": "页面B",
-            "schema": {
-              "type": "page",
-              "title": "页面B",
-              "body": "页面B"
-            }
-          },
-          {
-            "label": "页面C",
-            "schema": {
-              "type": "page",
-              "title": "页面C",
-              "body": "页面C"
-            }
-          },
-          {
-            "label": "列表示例",
-            "url": "/crud",
-            "rewrite": "/crud/list",
-            "icon": "fa fa-cube",
-            "children": [
-              {
-                "label": "列表",
-                "url": "/crud/list",
-                "icon": "fa fa-list",
-                "schemaApi": "get:/pages/crud-list.json"
-              },
-              {
-                "label": "新增",
+                "label": "新增消息模板",
                 "url": "/crud/new",
-                "icon": "fa fa-plus",
-                "schemaApi": "get:/pages/crud-new.json"
+                "icon": "fa fa-plus-square",
+                "schemaApi": "get:/pages/msgTemplate/crud-new.json"
               },
               {
-                "label": "查看",
+                "label": "消息模板列表",
+                "url": "/crud/list",
+                "icon": "fa fa-th-list",
+                "schemaApi": "get:/pages/msgTemplate/crud-list.json"
+              },
+              {
                 "url": "/crud/:id",
-                "schemaApi": "get:/pages/crud-view.json"
+                "schemaApi": "get:/pages/msgTemplate/crud-view.json"
               },
               {
-                "label": "修改",
                 "url": "/crud/:id/edit",
-                "schemaApi": "get:/pages/crud-edit.json"
+                "schemaApi": "get:/pages/msgTemplate/crud-edit.json"
               }
             ]
           }
         ]
       },
       {
-        "label": "分组2",
+        "label": "数据管理",
         "children": [
           {
-            "label": "用户管理",
-            "schema": {
-              "type": "page",
-              "title": "用户管理",
-              "body": "页面C"
-            }
-          },
+            "label": "全链路追踪",
+            "icon": "fa fa-bar-chart",
+            "children": [
+              {
+                "url": "trace/user",
+                "label": "用户全链路追踪",
+                "schemaApi": "get:/pages/trace-user.json"
+              },
+              {
+                "url": "trace/messageTemplate",
+                "label": "消息模板全链路追踪",
+                "schemaApi": "get:/pages/trace-message-template.json"
+              },
+              {
+                "url": "trace/messageHive",
+                "label": "离线明细全链路追踪",
+                "schemaApi": "get:/pages/trace-message-hive.json"
+              },
+              {
+                "url": "trace/sms",
+                "label": "短信下发数据查询",
+                "schemaApi": "get:/pages/trace-sms.json"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "素材管理",
+        "children": [
           {
-            "label": "外部链接",
-            "link": "http://baidu.gitee.io/amis"
-          },
+            "label": "渠道物料管理",
+            "icon": "fa fa-cube",
+            "children": [
+              {
+                "url": "material/upload",
+                "label": "上传素材",
+                "schemaApi": "get:/pages/material-upload.json"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "账号管理",
+        "children": [
           {
-            "label": "部门管理",
-            "schemaApi": "https://3xsw4ap8wah59.cfc-execute.bj.baidubce.com/api/amis-mock/mock2/service/form?tpl=tpl3"
-          },
+            "label": "渠道账号管理",
+            "icon": "fa fa-th-large",
+            "children": [
+              {
+                "label": "新增账号",
+                "url": "/account/new",
+                "icon": "fa fa-plus-square",
+                "schemaApi": "get:/pages/channelAccount/account-new.json"
+              },
+              {
+                "url": "account/list",
+                "label": "渠道账号列表",
+                "icon": "fa fa-th-list",
+                "schemaApi": "get:/pages/channelAccount/account-list.json"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "用户管理",
+        "children": [
           {
-            "label": "jsonp 返回示例",
-            "schemaApi": "jsonp:/pages/jsonp.js?callback=jsonpCallback"
+            "label": "登录/注册",
+            "icon": "fa fa-address-card-o",
+            "children": [
+              {
+                "label": "用户登录/注册",
+                "url": "/user/login",
+                "icon": "fa fa-user-plus",
+                "schemaApi": "get:/pages/user-login.json"
+              }
+            ]
           }
         ]
       }

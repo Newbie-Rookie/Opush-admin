@@ -1,0 +1,123 @@
+body{
+    /* 加载背景图 */
+    background-image: url("../images/login.png");
+    /* 背景图垂直、水平均居中 */
+    background-position: center center;
+    /* 背景图不平铺 */
+    background-repeat: no-repeat;
+    /* 当内容高度大于图片高度时，背景图像的位置相对于viewport固定 */
+    background-attachment: fixed;
+    /* 让背景图基于容器大小伸缩 */
+    background-size: cover;
+}
+
+#bigBox{
+    margin: 180px auto 0;
+    padding: 20px 40px;
+    width: 400px;
+    height: 350px;
+    border-radius: 100px;
+    background-color: rgba(52, 52, 59, 0.6);
+    text-align: center;
+}
+
+#bigBox h1{
+    color: rgba(95, 108, 159, 0.84);
+}
+
+#bigBox .inputBox{
+    margin-top: 30px;
+}
+
+#bigBox .inputBox .inputText{
+    margin-top: 30px;
+}
+
+#phone{
+    border: 0px;
+    border-radius: 100px;
+    width: 220px;
+    height: 15px;
+    padding: 10px 10px;
+    border-bottom: 2px solid white;
+    background-color: rgba(52, 52, 59, 0.6);
+    color: white;
+}
+
+#code{
+    margin-right: 10px;
+    border: 0px;
+    border-radius: 100px;
+    width: 120px;
+    height: 15px;
+    padding: 10px 10px;
+    border-bottom: 2px solid white;
+    background-color: rgba(52, 52, 59, 0.6);
+    color: white;
+}
+
+#send{
+    width: 85px;
+    height: 36px;
+    border: none;
+    color: white;
+    background-color: rgba(95, 108, 159, 1);
+    font-size: 10px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px #000000;
+    cursor: pointer;
+    outline: none;
+    transition: 0.2s all;
+}
+
+#send:active{
+    transform: scale(0.9);
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
+
+#submit {
+    margin-top: 20px;
+    width: 85px;
+    height: 35px;
+    border: none;
+    color: white;
+    background-color: rgba(95, 108, 159, 1);
+    font-size: 10px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px #000000;
+    cursor: pointer;
+    outline: none;
+    transition: 0.2s all;
+}
+
+#submit:active{
+    transform: scale(0.9);
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
+
+#phoneMsg{
+    height: 18px;
+    font-size: 8px;
+    text-align: left;
+    margin-left: 106px;
+    color: antiquewhite;
+}
+
+#codeMsg{
+    height: 18px;
+    font-size: 8px;
+    margin-left: 106px;
+    text-align: left;
+    color: antiquewhite;
+}
+
+.tips{
+    margin-top: 35px;
+    color: white;
+    font-size: 8px;
+}
+
+.fas{
+    color: antiquewhite;
+    margin-right: 10px;
+}
