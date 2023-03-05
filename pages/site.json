@@ -6,7 +6,7 @@
       {
         "label": "Home",
         "url": "/",
-        "redirect": "/user/login"
+        "redirect": "/crud/list"
       },
       {
         "label": "模板管理",
@@ -104,23 +104,6 @@
                 "label": "渠道账号列表",
                 "icon": "fa fa-th-list",
                 "schemaApi": "get:/pages/channelAccount/account-list.json"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "label": "用户管理",
-        "children": [
-          {
-            "label": "登录/注册",
-            "icon": "fa fa-address-card-o",
-            "children": [
-              {
-                "label": "用户登录/注册",
-                "url": "/user/login",
-                "icon": "fa fa-user-plus",
-                "schemaApi": "get:/pages/user-login.json"
               }
             ]
           }

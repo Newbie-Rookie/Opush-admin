@@ -1,5 +1,17 @@
 // 主页面的操作
 $(function(){
+    // 页面dom元素加载前执行
+    (function() {
+        // 判断客户端localStorage中的phone/token是否存在
+        if(!localStorage.getItem("phone") || !localStorage.setItem("token")){
+            // phone/token中某一不存在则删除node环境中的token再跳转到登录页
+            url = "http://localhost:3000/deleteToken";
+            $.get(url, "", function (res) {
+                location.href = "http://localhost:3000";
+            })
+        }
+    })(jQuery)
+
     $("#logout").on("click", function () {
         var flag = confirm("你是否确认退出登录？");
         if(flag){

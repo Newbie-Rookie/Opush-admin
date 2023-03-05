@@ -13,7 +13,8 @@ body,
 }
 
 #logout{
-    margin-left: 15px;
+    margin-left: 10px;
+    margin-bottom: 2px;
     float: left;
     width: 70px;
     height: 30px;
@@ -30,6 +31,6 @@ body,
 }
 
 #logout:active{
-    transform: scale(0.95);
+    transform: scale(0.96);
     box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
 }
