@@ -9,6 +9,7 @@ const request = require('request');
 const LocalStorage = require('node-localstorage').LocalStorage;
 localStorage = new LocalStorage('./scratch');
 localStorage.setItem('backend_url', 'http://localhost:8080');
+// localStorage.setItem('backend_url', 'http://110.40.150.166:8080');
 
 const app = express();
 
@@ -64,48 +65,6 @@ app.get('/*', function (req, res) {
         }
     });
 });
-
-// app.get('/index.html', function (req, res) {
-//     // Java后端接口
-//     let url = localStorage.getItem("backend_url") + "/static/index";
-//     // token（未登录为null）
-//     let token = localStorage.getItem("token");
-//     // 向后端发送请求，判断用户是否登录
-//     request({
-//         url: url,
-//         method: 'GET',
-//         headers: {"authorization": token, "sign": "index"}
-//     },function (error, response, body) {
-//         if (!error && response.statusCode == 200) {
-//             // 请求成功的处理逻辑
-//             var data = JSON.parse(response.body);
-//             if(data.status === "-1"){
-//                 res.sendFile(path.join(__dirname, './login.html'));
-//             }else{
-//                 res.sendFile(path.join(__dirname, './index.html'));
-//             }
-//         }
-//     });
-// });
-
-// app.get('/*', function (req, res) {
-//     // Java后端接口
-//     let url = localStorage.getItem("backend_url");
-//     // token
-//     let token = localStorage.getItem("token") === null ? "" : localStorage.getItem("token");
-//     // 向后端发送请求，判断用户是否登录
-//     request({
-//         url: url,
-//         method: 'POST',
-//         headers: {"authorization": token},
-//         form: {"sign": "sign"}
-//     },function (error, response, body) {
-//         console.log(response);
-//     });
-//     // 根据请求结果
-//     // res.sendFile(path.join(__dirname, './index.html'));
-//     // res.sendFile(path.join(__dirname, './login.html'));
-// });
 
 const server = http.createServer(app);
 

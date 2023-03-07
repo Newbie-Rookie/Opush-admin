@@ -7,6 +7,8 @@ function tips(obj, tip) {
 $(function(){
     // 请求后端的url
     localStorage.setItem("backend_url", "http://localhost:8080");
+    // localStorage.setItem("backend_url", "http://110.40.150.166:8080");
+    // localStorage.setItem("front_url", "http://110.40.150.166:3000");
 
     // 最终用于登录的手机号
     var finPhone = "";
@@ -110,9 +112,11 @@ $(function(){
                     localStorage.setItem("token", res.data.token);
                     localStorage.setItem("phone", finPhone);
                     url = "http://localhost:3000/setToken";
+                    // url = localStorage.getItem("front_url") + "/setToken";
                     data = {"token": res.data.token};
                     $.get(url, data, function (res) {
                         location.href = "http://localhost:3000";
+                        // location.href = localStorage.getItem("front_url");
                     })
                 } else {
                     tips("codeMsg", res.msg);

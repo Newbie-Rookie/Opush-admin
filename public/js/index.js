@@ -3,11 +3,13 @@ $(function(){
     // 页面dom元素加载前执行
     (function() {
         // 判断客户端localStorage中的phone/token是否存在
-        if(!localStorage.getItem("phone") || !localStorage.setItem("token")){
+        if(!localStorage.getItem("phone") || !localStorage.getItem("token")){
             // phone/token中某一不存在则删除node环境中的token再跳转到登录页
             url = "http://localhost:3000/deleteToken";
+            // url = localStorage.getItem("front_url") + "/deleteToken";
             $.get(url, "", function (res) {
                 location.href = "http://localhost:3000";
+                // location.href = localStorage.getItem("front_url");
             })
         }
     })(jQuery)
@@ -34,8 +36,10 @@ $(function(){
                         localStorage.removeItem("phone");
                         // 删除node环境中的token再跳转到登录页
                         url = "http://localhost:3000/deleteToken";
+                        // url = localStorage.getItem("front_url") + "/deleteToken";
                         $.get(url, "", function (res) {
                             location.href = "http://localhost:3000";
+                            // location.href = localStorage.getItem("front_url");
                         })
                     }
                 }
