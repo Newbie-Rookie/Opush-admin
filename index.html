@@ -33,7 +33,7 @@
 
         const app = {
           type: 'app',
-          brandName: 'Opush',
+          brandName: 'OPush',
           logo: './public/images/logo.png',
           header: {
             type: 'tpl',
@@ -109,6 +109,7 @@
           return decodeURI(pathname) === link;
         }
 
+        // 每次请求都会先到这里
         let amisInstance = amis.embed(
           '#root',
           app,
@@ -116,6 +117,12 @@
             location: history.location
           },
           {
+            // 配置全局请求适配器
+            requestAdaptor(api) {
+              // 配置请求头（token）
+              api.headers["authorization"] = localStorage.getItem("token");
+              return api;
+            },
             // watchRouteChange: fn => {
             //   return history.listen(fn);
             // },
