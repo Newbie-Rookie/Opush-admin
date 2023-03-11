@@ -121,6 +121,19 @@
             requestAdaptor(api) {
               // 配置请求头（token）
               api.headers["authorization"] = localStorage.getItem("token");
+              // 若为后端请求则拼接完整后端请求路径
+              if(!api.url.includes("/pages/") && !api.url.includes("/api/amis-mock/sample/")){
+                api.url = localStorage.getItem("backend_url") + api.url;
+                // 仅对get方法加creator
+                if(api.method == "get"){
+                  if(api.url.includes("?")){
+                    api.url = api.url + "&";
+                  }else{
+                    api.url = api.url + "?";
+                  }
+                  api.url = api.url + "creator=" + localStorage.getItem("phone");
+                }
+              }
               return api;
             },
             // watchRouteChange: fn => {

@@ -14,12 +14,6 @@ $(function(){
         }
     })(jQuery)
 
-    // // 添加全局请求头
-    // $(document).ajaxSend(function(event, xhr) {
-    //     // 在请求头中添加token
-    //     xhr.setRequestHeader('authorization', localStorage.getItem("token"));
-    // });
-
     // 退出登录
     $("#logout").on("click", function () {
         var flag = confirm("你是否确认退出登录？");

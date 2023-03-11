@@ -6,11 +6,17 @@
       {
         "label": "Home",
         "url": "/",
-        "redirect": "/crud/list"
+        "redirect": "/hello"
       },
       {
-        "label": "模板管理",
+        "label": "",
         "children": [
+          {
+            "label": "Hello",
+            "url": "/hello",
+            "icon": "fa fa-hand-peace-o",
+            "schemaApi": "get:/pages/hello.json"
+          },
           {
             "label": "消息模板管理",
             "icon": "fa fa-align-center",
@@ -40,7 +46,7 @@
         ]
       },
       {
-        "label": "数据管理",
+        "label": "",
         "children": [
           {
             "label": "全链路追踪",
@@ -71,7 +77,7 @@
         ]
       },
       {
-        "label": "素材管理",
+        "label": "",
         "children": [
           {
             "label": "渠道物料管理",
@@ -87,7 +93,7 @@
         ]
       },
       {
-        "label": "账号管理",
+        "label": "",
         "children": [
           {
             "label": "渠道账号管理",

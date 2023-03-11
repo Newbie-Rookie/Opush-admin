@@ -1,0 +1,9 @@
+{
+  "type": "page",
+  "body": {
+    "type": "image",
+    "title": "hello",
+    "src": "../public/images/OPush.png",
+    "imageMode": "original"
+  }
+}

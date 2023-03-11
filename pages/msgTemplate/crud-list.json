@@ -4,7 +4,7 @@
   "body": [
     {
       "type": "crud",
-      "api": "${ls:backend_url}/messageTemplate/list?page=${page}&perPage=${perPage}&keywords=${keywords}&creator=${ls:openId}",
+      "api": "/messageTemplate/list?page=${page}&perPage=${perPage}&name=${nameSearch}&templateType=${templateTypeSearch}&sendChannel=${sendChannelSearch}&msgType=${msgTypeSearch}",
       "bodyClassName": "panel-default",
       "syncLocation": false,
       "name": "sample",
@@ -13,23 +13,125 @@
         "pagination"
       ],
       "filter": {
-        "title": "",
-        "mode": "inline",
-        "wrapWithPanel": false,
+        "type": "group",
+        "title": "检索",
         "submitText": "",
-        "className": "m-b-sm",
+        "gap": "lg",
         "body": [
           {
             "type": "input-text",
-            "name": "keywords",
-            "placeholder": "通过关键字搜索",
-            "addOn": {
-              "label": "搜索",
-              "type": "submit",
-              "className": "btn-success"
-            },
+            "name": "nameSearch",
+            "label": "模板名",
             "clearable": true,
-            "size": "lg"
+            "placeholder": "模糊搜索",
+            "size": "md"
+          },
+          {
+            "type": "select",
+            "name": "templateTypeSearch",
+            "label": "模板类型",
+            "options": [
+              {
+                "label": "---",
+                "value": ""
+              },
+              {
+                "label": "定时",
+                "value": "10"
+              },
+              {
+                "label": "实时",
+                "value": "20"
+              }
+            ],
+            "size": "sm"
+          },
+          {
+            "type": "select",
+            "name": "sendChannelSearch",
+            "label": "发送渠道",
+            "options": [
+              {
+                "label": "---",
+                "value": ""
+              },
+              {
+                "label": "PUSH通知栏",
+                "value": "20"
+              },
+              {
+                "label": "短信",
+                "value": "30"
+              },
+              {
+                "label": "邮箱",
+                "value": "40"
+              },
+              {
+                "label": "微信服务号（模板消息）",
+                "value": "50"
+              },
+              {
+                "label": "微信小程序（订阅消息）",
+                "value": "60"
+              },
+              {
+                "label": "企业微信（应用消息）",
+                "value": "70"
+              },
+              {
+                "label": "钉钉群机器人",
+                "value": "80"
+              },
+              {
+                "label": "钉钉工作消息",
+                "value": "90"
+              },
+              {
+                "label": "企业微信（机器人）",
+                "value": "100"
+              },
+              {
+                "label": "飞书机器人",
+                "value": "110"
+              }
+            ],
+            "size": "md"
+          },
+          {
+            "type": "select",
+            "name": "msgTypeSearch",
+            "label": "消息类型",
+            "options": [
+              {
+                "label": "---",
+                "value": ""
+              },
+              {
+                "label": "通知类",
+                "value": "10"
+              },
+              {
+                "label": "营销类",
+                "value": "20"
+              },
+              {
+                "label": "验证码",
+                "value": "30"
+              }
+            ],
+            "size": "sm"
+          },
+          {
+            "label": "",
+            "type": "submit",
+            "level": "light",
+            "icon": "https://suda.cdn.bcebos.com/images%2F2021-01%2Fsearch.svg"
+          },
+          {
+            "label": "重置",
+            "type": "reset",
+            "level": "warning"
           }
         ]
       },
@@ -39,20 +141,28 @@
           "type": "button",
           "level": "danger",
           "actionType": "ajax",
-          "api": "delete:${ls:backend_url}/messageTemplate/delete/$ids",
-          "confirmText": "确定要批量删除?"
+          "api": "delete:/messageTemplate/delete/$ids",
+          "confirmText": "您确定进行批量删除操作吗?"
         }
       ],
       "columns": [
         {
           "name": "id",
           "label": "ID",
-          "width": 20,
-          "sortable": true
+          "width": 20
         },
         {
           "name": "name",
-          "label": "模板消息名"
+          "label": "模板名"
+        },
+        {
+          "name": "templateType",
+          "label": "模板类型",
+          "type": "mapping",
+          "map": {
+            "10": "定时",
+            "20": "实时"
+          }
         },
         {
           "name": "sendChannel",
@@ -72,15 +182,6 @@
           }
         },
         {
-          "name": "templateType",
-          "label": "模板类型",
-          "type": "mapping",
-          "map": {
-            "10": "定时任务发送",
-            "20": "实时调用接口"
-          }
-        },
-        {
           "name": "msgType",
           "label": "消息类型",
           "type": "mapping",
@@ -89,10 +190,6 @@
             "20": "营销类",
             "30": "验证码"
           }
-        },
-        {
-          "name": "creator",
-          "label": "创建者"
         },
         {
           "name": "idType",
@@ -111,25 +208,30 @@
           }
         },
         {
+          "name": "creator",
+          "label": "创建者"
+        },
+        {
           "type": "operation",
           "label": "操作",
           "width": "",
           "buttons": [
             {
               "type": "button-group",
+              "tiled": true,
               "buttons": [
                 {
                   "type": "button",
                   "label": "测试",
                   "level": "primary",
-                  "initApi": "post:${ls:backend_url}/messageTemplate/query/$id",
+                  "initApi": "post:/messageTemplate/query/$id",
                   "actionType": "dialog",
                   "dialog": {
                     "title": "测试一条消息",
                     "body": {
                       "type": "form",
                       "api": {
-                        "url": "${ls:backend_url}/messageTemplate/test",
+                        "url": "/messageTemplate/test",
                         "method": "post",
                         "requestAdaptor": "api.data.msgContent = JSON.stringify(api.data.testParam[0])\nreturn api;",
                         "data": {
@@ -144,11 +246,11 @@
                           "name": "receiver",
                           "label": "接收者",
                           "required": true,
-                          "description": "<font color=\"#990000\">模板存在占位符。</br>请点击【新增】填入文案测试下发！</font>"
+                          "description": "<font color=\"#990000\">该模板存在占位符，请点击【新增】并填入文案后进行测试下发！</font>"
                         },
                         {
                           "type": "service",
-                          "schemaApi": "${ls:backend_url}/messageTemplate/test/content?id=${id}"
+                          "schemaApi": "/messageTemplate/test/content?id=${id}"
                         }
                       ]
                     }
@@ -174,7 +276,7 @@
                   "level": "success",
                   "actionType": "ajax",
                   "confirmText": "您确认要启动吗?",
-                  "api": "post:${ls:backend_url}/messageTemplate/start/$id",
+                  "api": "post:/messageTemplate/start/$id",
                   "visibleOn": "this.templateType==10 && this.msgStatus!=30"
                 },
                 {
@@ -183,7 +285,7 @@
                   "level": "success",
                   "actionType": "ajax",
                   "confirmText": "您确认要暂停吗?",
-                  "api": "post:${ls:backend_url}/messageTemplate/stop/$id",
+                  "api": "post:/messageTemplate/stop/$id",
                   "visibleOn": "this.templateType==10 && this.msgStatus==30"
                 },
                 {
@@ -191,24 +293,24 @@
                   "label": "复制",
                   "level": "warning",
                   "actionType": "ajax",
-                  "confirmText": "您确认要复制?",
-                  "api": "post:${ls:backend_url}/messageTemplate/copy/$id"
+                  "confirmText": "您确认要复制吗?",
+                  "api": "post:/messageTemplate/copy/$id"
                 },
                 {
                   "type": "button",
                   "label": "撤回",
                   "level": "danger",
                   "actionType": "ajax",
-                  "confirmText": "您确认要撤回?",
-                  "api": "post:${ls:backend_url}/messageTemplate/recall/$id"
+                  "confirmText": "您确认要撤回吗?",
+                  "api": "post:/messageTemplate/recall/$id"
                 },
                 {
                   "type": "button",
                   "label": "删除",
                   "level": "danger",
                   "actionType": "ajax",
-                  "confirmText": "您确认要删除?",
-                  "api": "delete:${ls:backend_url}/messageTemplate/delete/$id"
+                  "confirmText": "您确认要删除吗?",
+                  "api": "delete:/messageTemplate/delete/$id"
                 }
               ]
             }
