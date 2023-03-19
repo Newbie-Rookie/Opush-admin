@@ -69,8 +69,9 @@
               },
               {
                 "url": "trace/sms",
-                "label": "短信下发数据查询",
-                "schemaApi": "get:/pages/trace-sms.json"
+                "label": "短信下发数据",
+                "icon": "fa fa-mobile-phone",
+                "schemaApi": "get:/pages/dataTrace/trace-sms.json"
               }
             ]
           }
@@ -87,29 +88,6 @@
                 "url": "material/upload",
                 "label": "上传素材",
                 "schemaApi": "get:/pages/material-upload.json"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "label": "",
-        "children": [
-          {
-            "label": "渠道账号管理",
-            "icon": "fa fa-th-large",
-            "children": [
-              {
-                "label": "新增账号",
-                "url": "/account/new",
-                "icon": "fa fa-plus-square",
-                "schemaApi": "get:/pages/channelAccount/account-new.json"
-              },
-              {
-                "url": "account/list",
-                "label": "渠道账号列表",
-                "icon": "fa fa-th-list",
-                "schemaApi": "get:/pages/channelAccount/account-list.json"
               }
             ]
           }

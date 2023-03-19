@@ -11,11 +11,6 @@
           "level": "success"
         }
       ],
-      "title": "",
-      "mode": "inline",
-      "wrapWithPanel": false,
-      "submitText": "",
-      "className": "m-b-sm",
       "body": [
         {
           "type": "fieldSet",
@@ -224,7 +219,7 @@
               "name": "sendAccount",
               "source": "/account/queryByChannelType?channelType=30",
               "visibleOn": "this.sendChannel == 30",
-              "description": "<font color=\"#990000\">Auto：根据类型走系统流量配置</font>",
+              "description": "&nbsp&nbsp&nbsp<font color=\"#990000\">Auto → 系统动态流量配置</font>",
               "clearValueOnHidden": false,
               "required": true,
               "size": "lg"
@@ -413,6 +408,7 @@
               "name": "sendAccount",
               "source": "/account/queryByChannelType?channelType=40",
               "visibleOn": "this.sendChannel == 40",
+              "description": "&nbsp&nbsp&nbsp<font color=\"#990000\">Auto → 系统动态流量配置</font>",
               "clearValueOnHidden": false,
               "required": true,
               "size": "lg"

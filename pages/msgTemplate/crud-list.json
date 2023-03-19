@@ -14,7 +14,7 @@
       ],
       "filter": {
         "type": "group",
-        "title": "检索",
+        "title": "检索条件",
         "submitText": "",
         "gap": "lg",
         "body": [
@@ -22,6 +22,7 @@
             "type": "input-text",
             "name": "nameSearch",
             "label": "模板名",
+            "borderMode": "half",
             "clearable": true,
             "placeholder": "模糊搜索",
             "size": "md"
