@@ -2,53 +2,74 @@
   "type": "page",
   "body": [
     {
-      "title": "检索条件",
-      "type": "form",
-      "mode": "inline",
-      "target": "my_crud",
-      "submitText": "",
-      "gap": "lg",
-      "body": [
-        {
-          "type": "input-text",
-          "name": "phone",
-          "label": "手机号",
-          "borderMode": "half",
-          "require": true,
-          "placeholder": "请输入手机号",
-          "size": "lg"
-        },
-        {
-          "type": "input-datetime",
-          "label": "日期时间",
-          "name": "dateTime",
-          "id": "u:19a52e7a9c6c",
-          "require": true,
-          "size": "lg"
-        },
-        {
-          "label": "",
-          "type": "submit",
-          "level": "light",
-          "icon": "https://suda.cdn.bcebos.com/images%2F2021-01%2Fsearch.svg"
-        }
-      ]
-    },
-    {
       "type": "crud",
       "name": "my_crud",
       "api": {
-        "url": "/trace/sms",
+        "url": "/trace/list",
         "method": "post",
         "data": {
+          "page": "${page}",
+          "perPage": "${perPage}",
           "receiver": "${phone}",
-          "dateTime": "${dateTime}"
+          "dateTime": "${dateTime}",
+          "creator": "${ls:phone}"
         }
+      },
+      "bodyClassName": "panel-default",
+      "syncLocation": false,
+      "footerToolbar": [
+        "switch-per-page",
+        "pagination"
+      ],
+      "filter": {
+        "type": "group",
+        "title": "检索条件",
+        "submitText": "",
+        "gap": "lg",
+        "body": [
+          {
+            "type": "input-text",
+            "name": "phone",
+            "label": "接收者",
+            "borderMode": "half",
+            "require": true,
+            "placeholder": "手机号模糊检索",
+            "size": "lg"
+          },
+          {
+            "type": "input-datetime",
+            "label": "下发日期时间",
+            "placeholder": "检索指定日期时间之后的数据",
+            "name": "dateTime",
+            "id": "u:19a52e7a9c6c",
+            "require": true,
+            "size": "lg"
+          },
+          {
+            "label": "",
+            "type": "submit",
+            "level": "light",
+            "icon": "https://suda.cdn.bcebos.com/images%2F2021-01%2Fsearch.svg"
+          },
+          {
+            "label": "重置",
+            "type": "reset",
+            "level": "warning"
+          }
+        ]
       },
       "columns": [
         {
           "name": "businessId",
           "label": "业务ID"
+        },
+        {
+          "name": "supplierName",
+          "label": "下发渠道商"
+        },
+        {
+          "name": "phone",
+          "label": "接收者"
         },
         {
           "name": "content",
@@ -74,7 +95,17 @@
           "name": "receiveContent",
           "label": "回执报告"
         }
-      ]
+      ],
+      "affixHeader": true,
+      "columnsTogglable": "auto",
+      "placeholder": "暂无数据",
+      "tableClassName": "table-db table-striped",
+      "headerClassName": "crud-table-header",
+      "footerClassName": "crud-table-footer",
+      "toolbarClassName": "crud-table-toolbar",
+      "combineNum": 0
     }
-  ]
+  ],
+  "remark": null,
+  "name": "page-demo"
 }

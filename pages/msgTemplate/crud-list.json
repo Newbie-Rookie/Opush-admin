@@ -24,7 +24,7 @@
             "label": "模板名",
             "borderMode": "half",
             "clearable": true,
-            "placeholder": "模糊搜索",
+            "placeholder": "模糊检索",
             "size": "md"
           },
           {
@@ -209,10 +209,6 @@
           }
         },
         {
-          "name": "creator",
-          "label": "创建者"
-        },
-        {
           "type": "operation",
           "label": "操作",
           "width": "",
@@ -238,7 +234,8 @@
                         "data": {
                           "id": "${id}",
                           "receiver": "${receiver}",
-                          "testParam": "${testParam}"
+                          "testParam": "${testParam}",
+                          "creator": "${ls:phone}"
                         }
                       },
                       "body": [

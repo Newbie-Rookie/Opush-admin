@@ -31,7 +31,8 @@
               "name": "proposer",
               "size": "md",
               "mode": "",
-              "description": ""
+              "description": "",
+              "required": true
             },
             {
               "type": "radios",
@@ -119,13 +120,13 @@
               "type": "input-text",
               "label": "cron表达式",
               "name": "expectPushTime",
-              "size": "md",
+              "size": "lg",
               "visibleOn": "this.templateType == 10",
               "clearValueOnHidden": false,
               "visible": "",
               "required": true,
-              "description": "1、<font color=\"#008252\">生成cron表达式页面：<a href=\"https://www.matools.com/cron\" target=\"_blank\">https://www.matools.com/cron</a></font>    2、<font color=\"#008252\">需要【立即发送】时填0</font>",
-              "placeholder": "需要【立即发送】时填0"
+              "description": "&nbsp&nbsp&nbsp<font color=\"#008252\">生成cron表达式工具 → <a href=\"https://www.matools.com/cron\" target=\"_blank\">https://www.matools.com/cron</a>&nbsp&nbsp，立即发送则填0【自动延迟8秒发送】</font>",
+              "placeholder": "立即发送则填0【自动延迟8秒发送】"
             },
             {
               "type": "input-file",
@@ -137,23 +138,23 @@
               "receiver": "/messageTemplate/upload",
               "remark": null,
               "labelRemark": null,
+              "drag": true,
               "mode": "",
-              "description": "1、<font color=\"#008252\">文件格式：csv文件</font> 2、<font color=\"#008252\">内容格式：列名userId,占位符变量1,占位符变量2</font>",
+              "description": "<font color=\"#008252\">仅支持.csv格式文件【列名格式 → userId, 占位符变量名1, 占位符变量名2, ...】</font>",
               "autoFill": {
-                "cronCrowdPath": "${value}"
+                "timedSendCrowdFilePath": "${value}"
               }
             },
             {
               "type": "input-text",
-              "name": "cronCrowdPath",
-              "size": "md",
+              "name": "timedSendCrowdFilePath",
               "visibleOn": "this.templateType == 10",
               "clearValueOnHidden": false,
               "visible": "",
               "required": true,
               "readOnly": true,
               "label": "人群文件路径",
-              "placeholder": "上传成功后自动填写(无须编辑)"
+              "placeholder": "上传文件成功后自动填写【无须手动编辑】"
             }
           ],
           "bodyClassName": "r-3x w-full text-lg r font-bold",
@@ -1143,7 +1144,7 @@
           "proposer": "${proposer}",
           "sendChannel": "${sendChannel}",
           "sendAccount": "${sendAccount}",
-          "cronCrowdPath": "${cronCrowdPath}",
+          "timedSendCrowdFilePath": "${timedSendCrowdFilePath}",
           "shieldType": "${shieldType}",
           "feedCards": "${feedCards}",
           "btnOrientation": "${btnOrientation}",
