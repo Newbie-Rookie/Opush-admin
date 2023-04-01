@@ -1,0 +1,67 @@
+{
+  "type": "page",
+  "body": [
+    {
+      "type": "form",
+      "title": "查询条件「支持查询30天内消息模板维度数据」",
+      "target": "chart1",
+      "reload": "chart1",
+      "className": "m-b",
+      "body": [
+        {
+          "type": "input-text",
+          "label": "模板Id「当天」/ 业务Id「非当天」",
+          "name": "name",
+          "addOn": {
+            "type": "submit",
+            "label": "",
+            "icon": "https://suda.cdn.bcebos.com/images%2F2021-01%2Fsearch.svg",
+            "level": "light"
+          },
+          "size": "lg",
+          "mode": "inline",
+          "description": "",
+          "placeholder": "请输入模板Id / 业务Id"
+        },
+        {
+          "type": "static",
+          "value": "业务Id格式说明",
+          "popOver": {
+            "body": {
+              "type": "tpl",
+              "tpl": "<font color=\"#28a745\">业务Id = 模板类型 + 模板Id + 当天日期「固定16位」</br><font color=\"#990000\">eg：2000000820230331</font></br><font color=\"#6d28d9\">前2位「模板类型」：10定时「后台定时调用」 20实时「接口实时调用」</br>中间6位「模板Id」：8为模板Id，不够6位则前面补0</br>后8位「下发日期」：20230331</font></font>"
+            }
+          }
+        }
+      ],
+      "actions": []
+    },
+    {
+      "type": "grid",
+      "className": "m-t-lg",
+      "columns": [
+        {
+          "body": [
+            {
+              "type": "chart",
+              "name": "chart1",
+              "initFetch": false,
+              "replaceChartOption": true,
+              "clearPersistDataAfterSubmit": true,
+              "api": {
+                "url": "/trace/messageTemplate",
+                "method": "post",
+                "data": {
+                  "page": "${page}",
+                  "perPage": "${perPage}",
+                  "businessId": "${name}",
+                  "creator": "${ls:phone}"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

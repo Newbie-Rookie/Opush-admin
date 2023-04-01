@@ -1,0 +1,62 @@
+{
+  "type": "page",
+  "body": [
+    {
+      "title": "查询条件「仅支持查询当天用户维度数据」",
+      "type": "form",
+      "target": "my_crud",
+      "submitText": "",
+      "mode": "inline",
+      "body": [
+        {
+          "type": "input-text",
+          "label": "用户Id",
+          "name": "receiver",
+          "addOn": {
+            "type": "submit",
+            "label": "",
+            "icon": "https://suda.cdn.bcebos.com/images%2F2021-01%2Fsearch.svg",
+            "level": "light"
+          },
+          "size": "lg",
+          "mode": "inline",
+          "description": "",
+          "placeholder": "请输入用户Id",
+          "require": true
+        }
+      ]
+    },
+    {
+      "type": "crud",
+      "name": "my_crud",
+      "api": {
+        "url": "/trace/user",
+        "method": "post",
+        "data": {
+          "page": "${page}",
+          "perPage": "${perPage}",
+          "receiver": "${receiver}",
+          "creator": "${ls:phone}"
+        }
+      },
+      "columns": [
+        {
+          "name": "businessId",
+          "label": "业务ID"
+        },
+        {
+          "name": "title",
+          "label": "消息模板名"
+        },
+        {
+          "name": "channelType",
+          "label": "发送渠道类型"
+        },
+        {
+          "name": "detail",
+          "label": "发送细节"
+        }
+      ]
+    }
+  ]
+}

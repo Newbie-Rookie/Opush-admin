@@ -14,23 +14,23 @@
           {
             "label": "Hello",
             "url": "/hello",
-            "icon": "fa fa-hand-peace-o",
+            "icon": "fa fa-user-circle",
             "schemaApi": "get:/pages/hello.json"
           },
           {
             "label": "消息模板管理",
-            "icon": "fa fa-align-center",
+            "icon": "fa fa-calendar-o",
             "children": [
               {
                 "label": "新增消息模板",
                 "url": "/crud/new",
-                "icon": "fa fa-plus-square",
+                "icon": "fa fa-calendar-plus-o",
                 "schemaApi": "get:/pages/msgTemplate/crud-new.json"
               },
               {
                 "label": "消息模板列表",
                 "url": "/crud/list",
-                "icon": "fa fa-th-list",
+                "icon": "fa fa-calendar-check-o",
                 "schemaApi": "get:/pages/msgTemplate/crud-list.json"
               },
               {
@@ -53,25 +53,22 @@
             "icon": "fa fa-bar-chart",
             "children": [
               {
+                "url": "trace/sms",
+                "label": "短信下发数据",
+                "icon": "fa fa-commenting-o",
+                "schemaApi": "get:/pages/dataTrace/trace-sms.json"
+              },
+              {
                 "url": "trace/user",
-                "label": "用户全链路追踪",
-                "schemaApi": "get:/pages/trace-user.json"
+                "label": "用户维度",
+                "icon": "fa fa-users",
+                "schemaApi": "get:/pages/dataTrace/trace-user.json"
               },
               {
                 "url": "trace/messageTemplate",
-                "label": "消息模板全链路追踪",
-                "schemaApi": "get:/pages/trace-message-template.json"
-              },
-              {
-                "url": "trace/messageHive",
-                "label": "离线明细全链路追踪",
-                "schemaApi": "get:/pages/trace-message-hive.json"
-              },
-              {
-                "url": "trace/sms",
-                "label": "短信下发数据",
-                "icon": "fa fa-mobile-phone",
-                "schemaApi": "get:/pages/dataTrace/trace-sms.json"
+                "label": "消息模板维度",
+                "icon": "fa fa-area-chart",
+                "schemaApi": "get:/pages/dataTrace/trace-message-template.json"
               }
             ]
           }
