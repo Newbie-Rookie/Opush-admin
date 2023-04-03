@@ -1,6 +1,6 @@
 {
   "type": "page",
-  "title": "新增消息模板",
+  "title": "「新增消息模板」",
   "body": [
     {
       "title": "",
@@ -14,12 +14,13 @@
       "body": [
         {
           "type": "fieldSet",
-          "title": "基础配置",
+          "title": "「基础配置」",
+          "collapsable": true,
           "body": [
             {
               "type": "input-text",
               "label": "模板名称",
-              "placeholder": "请输入模板名称",
+              "placeholder": "请输入「模板名称」",
               "name": "name",
               "size": "md",
               "required": true
@@ -27,7 +28,7 @@
             {
               "type": "input-text",
               "label": "模板业务方",
-              "placeholder": "请输入模板业务方",
+              "placeholder": "请输入「模板业务方」",
               "name": "proposer",
               "size": "md",
               "mode": "",
@@ -125,8 +126,8 @@
               "clearValueOnHidden": false,
               "visible": "",
               "required": true,
-              "description": "&nbsp&nbsp&nbsp<font color=\"#008252\">生成cron表达式工具 → <a href=\"https://www.matools.com/cron\" target=\"_blank\">https://www.matools.com/cron</a>&nbsp&nbsp，立即发送则填0【自动延迟8秒发送】</font>",
-              "placeholder": "立即发送则填0【自动延迟8秒发送】"
+              "description": "&nbsp&nbsp&nbsp<font color=\"#008252\">生成cron表达式工具 ➢ <a href=\"https://www.matools.com/cron\" target=\"_blank\">https://www.matools.com/cron</a>&nbsp&nbsp，立即发送则填0「自动延迟8秒发送」</font>",
+              "placeholder": "立即发送则填0「自动延迟8秒发送」"
             },
             {
               "type": "input-file",
@@ -140,7 +141,7 @@
               "labelRemark": null,
               "drag": true,
               "mode": "",
-              "description": "<font color=\"#008252\">仅支持.csv格式文件【列名格式 → userId, 占位符变量名1, 占位符变量名2, ...】</font>",
+              "description": "<font color=\"#008252\">仅支持.csv格式文件「列名格式 → userId, 占位符变量名1, 占位符变量名2, ...」</font>",
               "autoFill": {
                 "timedSendCrowdFilePath": "${value}"
               }
@@ -154,7 +155,7 @@
               "required": true,
               "readOnly": true,
               "label": "人群文件路径",
-              "placeholder": "上传文件成功后自动填写【无须手动编辑】"
+              "placeholder": "上传文件成功后自动填写「无须手动编辑」"
             }
           ],
           "bodyClassName": "r-3x w-full text-lg r font-bold",
@@ -162,7 +163,8 @@
         },
         {
           "type": "fieldSet",
-          "title": "渠道配置",
+          "title": "「发送渠道配置」",
+          "collapsable": true,
           "body": [
             {
               "name": "sendChannel",
@@ -184,31 +186,31 @@
                   "value": "40"
                 },
                 {
-                  "label": "微信服务号（模板消息）",
+                  "label": "微信服务号「模板消息」",
                   "value": "50"
                 },
                 {
-                  "label": "微信小程序（订阅消息）",
+                  "label": "微信小程序「订阅消息」",
                   "value": "60"
                 },
                 {
-                  "label": "企业微信（应用消息）",
+                  "label": "企业微信「应用消息」",
                   "value": "70"
                 },
                 {
-                  "label": "企业微信（机器人）",
+                  "label": "企业微信「机器人」",
                   "value": "100"
                 },
                 {
-                  "label": "钉钉群机器人",
+                  "label": "钉钉「群机器人」",
                   "value": "80"
                 },
                 {
-                  "label": "钉钉工作消息",
+                  "label": "钉钉「工作消息」",
                   "value": "90"
                 },
                 {
-                  "label": "飞书机器人",
+                  "label": "飞书「机器人」",
                   "value": "110"
                 }
               ],
@@ -218,38 +220,7 @@
               "type": "select",
               "label": "发送账号",
               "name": "sendAccount",
-              "source": "/account/queryByChannelType?channelType=30",
-              "visibleOn": "this.sendChannel == 30",
-              "description": "&nbsp&nbsp&nbsp<font color=\"#990000\">Auto → 系统动态流量配置</font>",
-              "clearValueOnHidden": false,
-              "required": true,
-              "size": "lg"
-            },
-            {
-              "name": "content",
-              "type": "input-text",
-              "label": "短信内容",
-              "required": true,
-              "visibleOn": "this.sendChannel == 30",
-              "mode": "",
-              "size": "lg",
-              "clearValueOnHidden": false,
-              "placeholder": "可用占位符{$content}"
-            },
-            {
-              "type": "input-text",
-              "label": "短信链接",
-              "name": "url",
-              "visibleOn": "this.sendChannel == 30",
-              "size": "lg",
-              "clearValueOnHidden": false,
-              "placeholder": "可用占位符{$url}，最好输入短链接"
-            },
-            {
-              "type": "select",
-              "label": "发送账号",
-              "name": "sendAccount",
-              "source": "/account/queryByChannelType?channelType=20",
+              "source": "/account/queryByChannelType/20",
               "visibleOn": "this.sendChannel == 20",
               "clearValueOnHidden": false,
               "required": true,
@@ -289,9 +260,80 @@
             },
             {
               "type": "select",
+              "label": "发送账号",
+              "name": "sendAccount",
+              "source": "/account/queryByChannelType/30",
+              "visibleOn": "this.sendChannel == 30",
+              "description": "&nbsp&nbsp&nbsp<font color=\"#990000\">Auto ➢ 系统动态流量配置</font>",
+              "clearValueOnHidden": false,
+              "required": true,
+              "size": "lg"
+            },
+            {
+              "name": "content",
+              "type": "input-text",
+              "label": "短信内容",
+              "required": true,
+              "visibleOn": "this.sendChannel == 30",
+              "mode": "",
+              "size": "lg",
+              "clearValueOnHidden": false,
+              "placeholder": "可用占位符{$content}"
+            },
+            {
+              "type": "input-text",
+              "label": "短信链接",
+              "name": "url",
+              "visibleOn": "this.sendChannel == 30",
+              "size": "lg",
+              "clearValueOnHidden": false,
+              "placeholder": "可用占位符{$url}，最好输入「短链接」"
+            },
+            {
+              "type": "select",
+              "label": "邮件账号",
+              "name": "sendAccount",
+              "source": "/account/queryByChannelType/40",
+              "visibleOn": "this.sendChannel == 40",
+              "description": "&nbsp&nbsp&nbsp<font color=\"#990000\">Auto ➢ 系统动态流量配置</font>",
+              "clearValueOnHidden": false,
+              "required": true,
+              "size": "lg"
+            },
+            {
+              "type": "input-text",
+              "label": "邮件标题",
+              "name": "title",
+              "required": true,
+              "visibleOn": "this.sendChannel == 40",
+              "size": "lg",
+              "clearValueOnHidden": false,
+              "placeholder": "可用占位符{$title}"
+            },
+            {
+              "type": "input-text",
+              "label": "邮件内容",
+              "name": "content",
+              "required": true,
+              "visibleOn": "this.sendChannel == 40",
+              "size": "lg",
+              "clearValueOnHidden": false,
+              "placeholder": "可用占位符{$content}，可输入「HTML」"
+            },
+            {
+              "type": "input-text",
+              "label": "附件链接",
+              "name": "url",
+              "visibleOn": "this.sendChannel == 40",
+              "size": "lg",
+              "clearValueOnHidden": false,
+              "placeholder": "可用占位符{$url}"
+            },
+            {
+              "type": "select",
               "label": "服务号账号",
               "name": "sendAccount",
-              "source": "/account/queryByChannelType?channelType=50",
+              "source": "/account/queryByChannelType/50",
               "visibleOn": "this.sendChannel == 50",
               "clearValueOnHidden": false,
               "required": true,
@@ -364,13 +406,13 @@
               "type": "service",
               "schemaApi": "/officialAccount/detailTemplate?id=${sendAccount}&wxTemplateId=${templateId}",
               "visibleOn": "this.sendChannel == 50",
-              "description": "<font color=\"#990000\">请点击【新增】填入文案</font>"
+              "description": "<font color=\"#990000\">请点击「新增」填入文案</font>"
             },
             {
               "type": "select",
               "label": "小程序账号",
               "name": "sendAccount",
-              "source": "/account/queryByChannelType?channelType=60",
+              "source": "/account/queryByChannelType/60",
               "visibleOn": "this.sendChannel == 60",
               "clearValueOnHidden": false,
               "required": true,
@@ -392,7 +434,7 @@
               "label": "发送链接",
               "name": "page",
               "required": true,
-              "visibleOn": "this.sendChannel == 60 ",
+              "visibleOn": "this.sendChannel == 60",
               "size": "lg",
               "clearValueOnHidden": false,
               "placeholder": "可用占位符{$url}"
@@ -401,129 +443,14 @@
               "type": "service",
               "schemaApi": "/miniProgram/detailTemplate?id=${sendAccount}&wxTemplateId=${templateId}",
               "visibleOn": "this.sendChannel == 60",
-              "description": "<font color=\"#990000\">请点击【新增】填入文案</font>"
+              "description": "<font color=\"#990000\">请点击「新增」填入文案</font>"
             },
             {
               "type": "select",
-              "label": "邮件账号",
+              "label": "应用",
               "name": "sendAccount",
-              "source": "/account/queryByChannelType?channelType=40",
-              "visibleOn": "this.sendChannel == 40",
-              "description": "&nbsp&nbsp&nbsp<font color=\"#990000\">Auto → 系统动态流量配置</font>",
-              "clearValueOnHidden": false,
-              "required": true,
-              "size": "lg"
-            },
-            {
-              "type": "input-text",
-              "label": "邮件标题",
-              "name": "title",
-              "required": true,
-              "visibleOn": "this.sendChannel == 40",
-              "size": "lg",
-              "clearValueOnHidden": false,
-              "placeholder": "可用占位符{$title}"
-            },
-            {
-              "type": "input-text",
-              "label": "邮件内容",
-              "name": "content",
-              "required": true,
-              "visibleOn": "this.sendChannel == 40",
-              "size": "lg",
-              "clearValueOnHidden": false,
-              "placeholder": "可用占位符{$content}，可输入HTML"
-            },
-            {
-              "type": "input-text",
-              "label": "附件链接",
-              "name": "url",
-              "visibleOn": "this.sendChannel == 40",
-              "size": "lg",
-              "clearValueOnHidden": false,
-              "placeholder": "可用占位符{$url}"
-            },
-            {
-              "type": "select",
-              "label": "飞书机器人",
-              "name": "sendAccount",
-              "source": "/account/queryByChannelType?channelType=110",
-              "visibleOn": "this.sendChannel == 110",
-              "clearValueOnHidden": false,
-              "required": true,
-              "size": "lg"
-            },
-            {
-              "name": "sendType",
-              "label": "发送类型",
-              "type": "radios",
-              "options": [
-                {
-                  "label": "文本",
-                  "value": "10"
-                }
-              ],
-              "visibleOn": "this.sendChannel == 110",
-              "clearValueOnHidden": false,
-              "required": true,
-              "size": "lg"
-            },
-            {
-              "type": "input-text",
-              "label": "飞书内容",
-              "name": "content",
-              "required": true,
-              "visibleOn": "this.sendChannel == 110 && this.sendType ==10 ",
-              "size": "lg",
-              "clearValueOnHidden": false,
-              "placeholder": "可用占位符{$content}"
-            },
-            {
-              "type": "input-text",
-              "label": "图片标识",
-              "name": "mediaId",
-              "required": true,
-              "visibleOn": "this.sendChannel == 110 && this.sendType ==100 ",
-              "size": "lg",
-              "clearValueOnHidden": false,
-              "placeholder": "可用占位符{$mediaId}"
-            },
-            {
-              "type": "select",
-              "label": "企业微信应用",
-              "name": "sendAccount",
-              "source": "/account/queryByChannelType?channelType=70",
+              "source": "/account/queryByChannelType/70",
               "visibleOn": "this.sendChannel == 70",
-              "clearValueOnHidden": false,
-              "required": true,
-              "size": "lg"
-            },
-            {
-              "type": "select",
-              "label": "企业微信（机器人）",
-              "name": "sendAccount",
-              "source": "/account/queryByChannelType?channelType=100",
-              "visibleOn": "this.sendChannel == 100",
-              "clearValueOnHidden": false,
-              "required": true,
-              "size": "lg"
-            },
-            {
-              "type": "select",
-              "label": "钉钉群机器人",
-              "name": "sendAccount",
-              "source": "/account/queryByChannelType?channelType=80",
-              "visibleOn": "this.sendChannel == 80",
-              "clearValueOnHidden": false,
-              "required": true,
-              "size": "lg"
-            },
-            {
-              "type": "select",
-              "label": "钉钉应用",
-              "name": "sendAccount",
-              "source": "/account/queryByChannelType?channelType=90",
-              "visibleOn": "this.sendChannel == 90",
               "clearValueOnHidden": false,
               "required": true,
               "size": "lg"
@@ -566,112 +493,7 @@
                   "value": "100"
                 }
               ],
-              "visibleOn": "this.sendChannel == 70  ",
-              "clearValueOnHidden": false,
-              "required": true,
-              "size": "lg"
-            },
-            {
-              "name": "sendType",
-              "label": "发送类型",
-              "type": "radios",
-              "options": [
-                {
-                  "label": "文本",
-                  "value": "10"
-                },
-                {
-                  "label": "图文",
-                  "value": "40"
-                },
-                {
-                  "label": "文件",
-                  "value": "60"
-                },
-                {
-                  "label": "markdown类型",
-                  "value": "80"
-                },
-                {
-                  "label": "图片",
-                  "value": "100"
-                }
-              ],
-              "visibleOn": "this.sendChannel == 100  ",
-              "clearValueOnHidden": false,
-              "required": true,
-              "size": "lg"
-            },
-            {
-              "name": "sendType",
-              "label": "发送类型",
-              "type": "radios",
-              "options": [
-                {
-                  "label": "文本(text)",
-                  "value": "10"
-                },
-                {
-                  "label": "语音(voice)",
-                  "value": "20"
-                },
-                {
-                  "label": "文件(file)",
-                  "value": "60"
-                },
-                {
-                  "label": "markdown类型(markdown)",
-                  "value": "80"
-                },
-                {
-                  "label": "图片(image)",
-                  "value": "100"
-                },
-                {
-                  "label": "链接消息(link)",
-                  "value": "110"
-                },
-                {
-                  "label": "卡片消息(action_card)",
-                  "value": "120"
-                },
-                {
-                  "label": "OA消息(oa)",
-                  "value": "130"
-                }
-              ],
-              "visibleOn": "this.sendChannel==90 ",
-              "clearValueOnHidden": false,
-              "required": true,
-              "size": "lg"
-            },
-            {
-              "name": "sendType",
-              "label": "发送类型",
-              "type": "radios",
-              "options": [
-                {
-                  "label": "文本(text)",
-                  "value": "10"
-                },
-                {
-                  "label": "图文(FeedCard)",
-                  "value": "40"
-                },
-                {
-                  "label": "markdown类型(markdown)",
-                  "value": "80"
-                },
-                {
-                  "label": "链接消息(links)",
-                  "value": "110"
-                },
-                {
-                  "label": "卡片消息(actionCard)",
-                  "value": "120"
-                }
-              ],
-              "visibleOn": "this.sendChannel == 80",
+              "visibleOn": "this.sendChannel == 70",
               "clearValueOnHidden": false,
               "required": true,
               "size": "lg"
@@ -795,84 +617,48 @@
               "clearValueOnHidden": false,
               "placeholder": "可用占位符{$content}"
             },
+
+
             {
-              "type": "input-text",
-              "label": "文本内容",
-              "name": "content",
-              "required": true,
-              "visibleOn": "this.sendChannel == 100 && this.sendType == 10",
-              "size": "lg",
+              "type": "select",
+              "label": "群机器人",
+              "name": "sendAccount",
+              "source": "/account/queryByChannelType/80",
+              "visibleOn": "this.sendChannel == 80",
               "clearValueOnHidden": false,
-              "placeholder": "可用占位符{$content}"
-            },
-            {
-              "type": "input-text",
-              "label": "markdown",
-              "name": "content",
               "required": true,
-              "visibleOn": "this.sendChannel == 100 && this.sendType == 80",
-              "size": "lg",
-              "clearValueOnHidden": false,
-              "placeholder": "可用占位符{$content}"
+              "size": "lg"
             },
             {
-              "type": "input-text",
-              "label": "图片base64",
-              "name": "base64",
-              "required": true,
-              "visibleOn": "this.sendChannel == 100 && this.sendType == 100",
-              "size": "lg",
-              "clearValueOnHidden": false,
-              "placeholder": "图片内容的base64编码"
-            },
-            {
-              "type": "input-text",
-              "label": "图片内容md5",
-              "name": "md5",
-              "required": true,
-              "visibleOn": "this.sendChannel == 100 && this.sendType == 100",
-              "size": "lg",
-              "clearValueOnHidden": false,
-              "placeholder": "在base64编码前的md5"
-            },
-            {
-              "type": "input-text",
-              "label": "文件Id",
-              "name": "mediaId",
-              "required": true,
-              "visibleOn": "this.sendChannel == 100 && this.sendType == 60",
-              "size": "lg",
-              "placeholder": "可用占位符{$mediaId}",
-              "clearValueOnHidden": false
-            },
-            {
-              "type": "input-table",
-              "name": "articles",
-              "addable": true,
-              "editable": true,
-              "visibleOn": "this.sendChannel == 100 && ( this.sendType == 40)",
-              "columns": [
+              "name": "sendType",
+              "label": "发送类型",
+              "type": "radios",
+              "options": [
                 {
-                  "name": "title",
-                  "label": "标题",
-                  "placeholder": "可用占位符{$title}"
+                  "label": "文本「text」",
+                  "value": "10"
                 },
                 {
-                  "name": "description",
-                  "label": "描述",
-                  "placeholder": "可用占位符{$description}"
+                  "label": "图文「FeedCard」",
+                  "value": "40"
                 },
                 {
-                  "name": "url",
-                  "label": "跳转链接",
-                  "placeholder": "可用占位符{$url}"
+                  "label": "markdown类型「markdown」",
+                  "value": "80"
                 },
                 {
-                  "name": "picurl",
-                  "label": "图片链接",
-                  "placeholder": "可用占位符{$picurlURL}"
+                  "label": "链接消息「links」",
+                  "value": "110"
+                },
+                {
+                  "label": "卡片消息「actionCard」",
+                  "value": "120"
                 }
-              ]
+              ],
+              "visibleOn": "this.sendChannel == 80",
+              "clearValueOnHidden": false,
+              "required": true,
+              "size": "lg"
             },
             {
               "type": "input-text",
@@ -971,6 +757,60 @@
                   "placeholder": "可用占位符{$picURL}"
                 }
               ]
+            },
+
+            {
+              "type": "select",
+              "label": "应用",
+              "name": "sendAccount",
+              "source": "/account/queryByChannelType/90",
+              "visibleOn": "this.sendChannel == 90",
+              "clearValueOnHidden": false,
+              "required": true,
+              "size": "lg"
+            },
+            {
+              "name": "sendType",
+              "label": "发送类型",
+              "type": "radios",
+              "options": [
+                {
+                  "label": "文本「text」",
+                  "value": "10"
+                },
+                {
+                  "label": "语音「voice」",
+                  "value": "20"
+                },
+                {
+                  "label": "文件「file」",
+                  "value": "60"
+                },
+                {
+                  "label": "markdown类型「markdown」",
+                  "value": "80"
+                },
+                {
+                  "label": "图片「image」",
+                  "value": "100"
+                },
+                {
+                  "label": "链接消息「link」",
+                  "value": "110"
+                },
+                {
+                  "label": "卡片消息「action_card」",
+                  "value": "120"
+                },
+                {
+                  "label": "OA消息「oa」",
+                  "value": "130"
+                }
+              ],
+              "visibleOn": "this.sendChannel == 90",
+              "clearValueOnHidden": false,
+              "required": true,
+              "size": "lg"
             },
             {
               "type": "input-text",
@@ -1117,6 +957,171 @@
               "visibleOn": "this.sendChannel == 90 && this.sendType == 130",
               "size": "lg",
               "clearValueOnHidden": false
+            },
+            {
+              "type": "select",
+              "label": "机器人",
+              "name": "sendAccount",
+              "source": "/account/queryByChannelType/100",
+              "visibleOn": "this.sendChannel == 100",
+              "clearValueOnHidden": false,
+              "required": true,
+              "size": "lg"
+            },
+            {
+              "name": "sendType",
+              "label": "发送类型",
+              "type": "radios",
+              "options": [
+                {
+                  "label": "文本",
+                  "value": "10"
+                },
+                {
+                  "label": "图文",
+                  "value": "40"
+                },
+                {
+                  "label": "文件",
+                  "value": "60"
+                },
+                {
+                  "label": "markdown类型",
+                  "value": "80"
+                },
+                {
+                  "label": "图片",
+                  "value": "100"
+                }
+              ],
+              "visibleOn": "this.sendChannel == 100",
+              "clearValueOnHidden": false,
+              "required": true,
+              "size": "lg"
+            },
+            {
+              "type": "input-text",
+              "label": "文本内容",
+              "name": "content",
+              "required": true,
+              "visibleOn": "this.sendChannel == 100 && this.sendType == 10",
+              "size": "lg",
+              "clearValueOnHidden": false,
+              "placeholder": "可用占位符{$content}"
+            },
+            {
+              "type": "input-text",
+              "label": "markdown",
+              "name": "content",
+              "required": true,
+              "visibleOn": "this.sendChannel == 100 && this.sendType == 80",
+              "size": "lg",
+              "clearValueOnHidden": false,
+              "placeholder": "可用占位符{$content}"
+            },
+            {
+              "type": "input-text",
+              "label": "图片base64",
+              "name": "base64",
+              "required": true,
+              "visibleOn": "this.sendChannel == 100 && this.sendType == 100",
+              "size": "lg",
+              "clearValueOnHidden": false,
+              "placeholder": "图片内容的base64编码"
+            },
+            {
+              "type": "input-text",
+              "label": "图片内容md5",
+              "name": "md5",
+              "required": true,
+              "visibleOn": "this.sendChannel == 100 && this.sendType == 100",
+              "size": "lg",
+              "clearValueOnHidden": false,
+              "placeholder": "在base64编码前的md5"
+            },
+            {
+              "type": "input-text",
+              "label": "文件Id",
+              "name": "mediaId",
+              "required": true,
+              "visibleOn": "this.sendChannel == 100 && this.sendType == 60",
+              "size": "lg",
+              "placeholder": "可用占位符{$mediaId}",
+              "clearValueOnHidden": false
+            },
+            {
+              "type": "input-table",
+              "name": "articles",
+              "addable": true,
+              "editable": true,
+              "visibleOn": "this.sendChannel == 100 && this.sendType == 40",
+              "columns": [
+                {
+                  "name": "title",
+                  "label": "标题",
+                  "placeholder": "可用占位符{$title}"
+                },
+                {
+                  "name": "description",
+                  "label": "描述",
+                  "placeholder": "可用占位符{$description}"
+                },
+                {
+                  "name": "url",
+                  "label": "跳转链接",
+                  "placeholder": "可用占位符{$url}"
+                },
+                {
+                  "name": "picurl",
+                  "label": "图片链接",
+                  "placeholder": "可用占位符{$picurlURL}"
+                }
+              ]
+            },
+            {
+              "type": "select",
+              "label": "机器人",
+              "name": "sendAccount",
+              "source": "/account/queryByChannelType/110",
+              "visibleOn": "this.sendChannel == 110",
+              "clearValueOnHidden": false,
+              "required": true,
+              "size": "lg"
+            },
+            {
+              "name": "sendType",
+              "label": "发送类型",
+              "type": "radios",
+              "options": [
+                {
+                  "label": "文本",
+                  "value": "10"
+                }
+              ],
+              "visibleOn": "this.sendChannel == 110",
+              "clearValueOnHidden": false,
+              "required": true,
+              "size": "lg"
+            },
+            {
+              "type": "input-text",
+              "label": "飞书内容",
+              "name": "content",
+              "required": true,
+              "visibleOn": "this.sendChannel == 110 && this.sendType == 10",
+              "size": "lg",
+              "clearValueOnHidden": false,
+              "placeholder": "可用占位符{$content}"
+            },
+            {
+              "type": "input-text",
+              "label": "图片标识",
+              "name": "mediaId",
+              "required": true,
+              "visibleOn": "this.sendChannel == 110 && this.sendType == 100",
+              "size": "lg",
+              "clearValueOnHidden": false,
+              "placeholder": "可用占位符{$mediaId}"
             }
           ],
           "className": "",

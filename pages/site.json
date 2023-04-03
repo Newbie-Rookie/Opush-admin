@@ -14,7 +14,7 @@
           {
             "label": "Hello",
             "url": "/hello",
-            "icon": "fa fa-user-circle",
+            "icon": "fa fa-home",
             "schemaApi": "get:/pages/hello.json"
           },
           {
@@ -40,6 +40,33 @@
               {
                 "url": "/crud/:id/edit",
                 "schemaApi": "get:/pages/msgTemplate/crud-edit.json"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "",
+        "children": [
+          {
+            "label": "渠道账号管理",
+            "icon": "fa fa-share-alt",
+            "children": [
+              {
+                "label": "新增渠道账号",
+                "url": "/account/new",
+                "icon": "fa fa-plus-square",
+                "schemaApi": "get:/pages/channelAccount/account-new.json"
+              },
+              {
+                "label": "渠道账号列表",
+                "url": "/account/list",
+                "icon": "fa fa-list-ul",
+                "schemaApi": "get:/pages/channelAccount/account-list.json"
+              },
+              {
+                "url": "/account/:id/edit",
+                "schemaApi": "get:/pages/channelAccount/account-edit.json"
               }
             ]
           }
@@ -79,7 +106,7 @@
         "children": [
           {
             "label": "素材管理",
-            "icon": "fa fa-cube",
+            "icon": "fa fa-cubes",
             "children": [
               {
                 "url": "material/upload",

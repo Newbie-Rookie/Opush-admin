@@ -1,5 +1,6 @@
 {
   "type": "page",
+  "title": "「消息模板维度数据查询」",
   "body": [
     {
       "type": "form",
@@ -10,7 +11,7 @@
       "body": [
         {
           "type": "input-text",
-          "label": "模板Id「当天」/ 业务Id「非当天」",
+          "label": "模板ID「当天」/ 业务ID「非当天」",
           "name": "name",
           "addOn": {
             "type": "submit",
@@ -21,15 +22,15 @@
           "size": "lg",
           "mode": "inline",
           "description": "",
-          "placeholder": "请输入模板Id / 业务Id"
+          "placeholder": "请输入「模板ID」/「业务ID」"
         },
         {
           "type": "static",
-          "value": "业务Id格式说明",
+          "value": "「业务ID」格式说明「请点击放大镜查看」",
           "popOver": {
             "body": {
               "type": "tpl",
-              "tpl": "<font color=\"#28a745\">业务Id = 模板类型 + 模板Id + 当天日期「固定16位」</br><font color=\"#990000\">eg：2000000820230331</font></br><font color=\"#6d28d9\">前2位「模板类型」：10定时「后台定时调用」 20实时「接口实时调用」</br>中间6位「模板Id」：8为模板Id，不够6位则前面补0</br>后8位「下发日期」：20230331</font></font>"
+              "tpl": "<font color=\"#28a745\">业务ID ➢ 模板类型 + 模板ID + 当天日期「固定16位」</br><font color=\"#990000\">➢ 2000000820230331</font></br><font color=\"#6d28d9\">&nbsp&nbsp&nbsp&nbsp&nbsp前2位「模板类型」➢ 10 定时「后台定时调用」 20 实时「接口实时调用」</br>&nbsp&nbsp&nbsp&nbsp&nbsp中间6位「模板ID」➢ 000008「不足6位则前面补0」</br>&nbsp&nbsp&nbsp&nbsp&nbsp后8位「下发日期」➢ 20230331</font></font>"
             }
           }
         }

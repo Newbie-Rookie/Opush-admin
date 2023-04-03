@@ -1,10 +1,10 @@
 {
   "type": "page",
-  "title": "列表管理",
+  "title": "「渠道账号列表」",
   "body": [
     {
       "type": "crud",
-      "api": "${ls:backend_url}/account/list?creator=${ls:openId}",
+      "api": "/account/list",
       "bodyClassName": "panel-default",
       "name": "sample",
       "columns": [
@@ -16,11 +16,7 @@
         },
         {
           "name": "name",
-          "label": "账号名称"
-        },
-        {
-          "name": "accountConfig",
-          "label": "账号配置信息"
+          "label": "账号名"
         },
         {
           "name": "sendChannel",
@@ -30,14 +26,18 @@
             "20": "PUSH通知栏",
             "30": "短信",
             "40": "邮箱",
-            "50": "微信服务号（模板消息）",
-            "60": "微信小程序（订阅消息）",
-            "70": "企业微信应用消息",
-            "80": "钉钉群机器人",
-            "90": "钉钉工作消息",
-            "100": "企业微信机器人",
-            "110": "飞书机器人"
+            "50": "微信服务号「模板消息」",
+            "60": "微信小程序「订阅消息」",
+            "70": "企业微信「应用消息」",
+            "80": "钉钉「群机器人」",
+            "90": "钉钉「工作消息」",
+            "100": "企业微信「机器人」",
+            "110": "飞书「机器人」"
           }
+        },
+        {
+          "name": "accountConfig",
+          "label": "账号配置"
         },
         {
           "type": "operation",
@@ -46,14 +46,22 @@
           "buttons": [
             {
               "type": "button-group",
+              "tiled": true,
               "buttons": [
+                {
+                  "type": "button",
+                  "label": "修改",
+                  "level": "info",
+                  "actionType": "link",
+                  "link": "/account/${id}/edit"
+                },
                 {
                   "type": "button",
                   "label": "删除",
                   "level": "danger",
                   "actionType": "ajax",
                   "confirmText": "您确认要删除?",
-                  "api": "delete:${ls:backend_url}/account/delete/$id"
+                  "api": "delete:/account/delete/$id"
                 }
               ]
             }

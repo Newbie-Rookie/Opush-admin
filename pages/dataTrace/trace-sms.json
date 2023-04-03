@@ -1,5 +1,6 @@
 {
   "type": "page",
+  "title": "「短信下发数据」",
   "body": [
     {
       "type": "crud",
@@ -23,7 +24,7 @@
       ],
       "filter": {
         "type": "group",
-        "title": "检索条件",
+        "title": "「检索条件」",
         "submitText": "",
         "gap": "lg",
         "body": [
@@ -33,13 +34,13 @@
             "label": "接收者",
             "borderMode": "half",
             "require": true,
-            "placeholder": "手机号模糊检索",
+            "placeholder": "「手机号」模糊检索",
             "size": "lg"
           },
           {
             "type": "input-datetime",
             "label": "下发日期时间",
-            "placeholder": "检索指定日期时间之后的数据",
+            "placeholder": "检索「指定日期时间之后」的数据",
             "name": "dateTime",
             "id": "u:19a52e7a9c6c",
             "require": true,

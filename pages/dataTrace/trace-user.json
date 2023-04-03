@@ -1,5 +1,6 @@
 {
   "type": "page",
+  "title": "「用户维度数据查询」",
   "body": [
     {
       "title": "查询条件「仅支持查询当天用户维度数据」",
@@ -10,7 +11,7 @@
       "body": [
         {
           "type": "input-text",
-          "label": "用户Id",
+          "label": "用户ID",
           "name": "receiver",
           "addOn": {
             "type": "submit",
@@ -21,7 +22,7 @@
           "size": "lg",
           "mode": "inline",
           "description": "",
-          "placeholder": "请输入用户Id",
+          "placeholder": "请输入「用户ID」",
           "require": true
         }
       ]

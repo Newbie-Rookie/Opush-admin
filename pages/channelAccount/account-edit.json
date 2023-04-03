@@ -1,6 +1,6 @@
 {
   "type": "page",
-  "title": "「新增渠道账号」",
+  "title": "修改账号ID为「${params.id}」的渠道账号信息",
   "body": [
     {
       "title": "",
@@ -65,7 +65,7 @@
                   {
                     "type": "tpl",
                     "visibleOn": "this.sendChannel == 60",
-                    "tpl": "<font color=\"#990000\">参数值获取方法 ➢ https://blog.csdn.net/u013818205/article/details/129527780<font><br><font color=\"#6d28d9\">{<br>&nbsp&nbsp&nbsp&nbsp&nbsp\"appId\" : \"wx993xxxxxxx2ba86\",<br>&nbsp&nbsp&nbsp&nbsp&nbsp\"appSecret\" : \"7ffffcc59e1xxxxxxxxxxxx0650ac1ada7\"<br>}<font>"
+                    "tpl": "<font color=\"#990000\">参数值获取方法 ➢ https://blog.csdn.net/u013818205/article/details/129527780<font><br><font color=\"#6d28d9\">{<br>&nbsp&nbsp&nbsp&nbsp&nbsp\"appId\" : \"wx993a5323432ba86\",<br>&nbsp&nbsp&nbsp&nbsp&nbsp\"appSecret\" : \"7ffffcc59e1fsdafsdafsdc0650ac1ada7\"<br>}<font>"
                   },
                   {
                     "type": "tpl",
@@ -100,7 +100,8 @@
           "accountConfig": "${accountConfig}",
           "creator": "${ls:phone}"
         }
-      }
+      },
+      "initApi": "/account/queryById/${params.id}"
     }
   ],
   "toolbar": [

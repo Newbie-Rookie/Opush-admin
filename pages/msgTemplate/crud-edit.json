@@ -1,6 +1,6 @@
 {
   "type": "page",
-  "title": "修改ID为${params.id}的消息模板信息",
+  "title": "修改模板ID为「${params.id}」的消息模板信息",
   "body": [
     {
       "title": "",
@@ -14,7 +14,8 @@
       "body": [
         {
           "type": "fieldSet",
-          "title": "基础配置",
+          "title": "「基础配置」",
+          "collapsable": true,
           "body": [
             {
               "type": "input-text",
@@ -120,8 +121,8 @@
               "clearValueOnHidden": false,
               "visible": "",
               "required": true,
-              "description": "&nbsp&nbsp&nbsp<font color=\"#008252\">生成cron表达式工具 → <a href=\"https://www.matools.com/cron\" target=\"_blank\">https://www.matools.com/cron</a>&nbsp&nbsp，立即发送则填0【自动延迟8秒发送】</font>",
-              "placeholder": "立即发送则填0【自动延迟8秒发送】"
+              "description": "&nbsp&nbsp&nbsp<font color=\"#008252\">生成cron表达式工具 ➢ <a href=\"https://www.matools.com/cron\" target=\"_blank\">https://www.matools.com/cron</a>&nbsp&nbsp，立即发送则填0「自动延迟8秒发送」</font>",
+              "placeholder": "立即发送则填0「自动延迟8秒发送」"
             },
             {
               "type": "input-text",
@@ -133,7 +134,7 @@
               "clearValueOnHidden": false,
               "visible": "",
               "readOnly": true,
-              "placeholder": "上传文件成功后自动填写【无须手动编辑】"
+              "placeholder": "上传文件成功后自动填写「无须手动编辑」"
             }
           ],
           "bodyClassName": "r-3x w-full text-lg r font-bold",
@@ -141,7 +142,8 @@
         },
         {
           "type": "fieldSet",
-          "title": "渠道信息",
+          "title": "「发送渠道配置」",
+          "collapsable": true,
           "body": [
             {
               "name": "sendChannel",
@@ -161,19 +163,19 @@
                   "value": "40"
                 },
                 {
-                  "label": "微信服务号（模板消息）",
+                  "label": "微信服务号「模板消息」",
                   "value": "50"
                 },
                 {
-                  "label": "微信小程序（订阅消息）",
+                  "label": "微信小程序「订阅消息」",
                   "value": "60"
                 },
                 {
-                  "label": "企业微信（应用消息）",
+                  "label": "企业微信「应用消息」",
                   "value": "70"
                 },
                 {
-                  "label": "企业微信（机器人）",
+                  "label": "企业微信「机器人」",
                   "value": "100"
                 },
                 {
@@ -195,9 +197,9 @@
               "type": "select",
               "label": "发送账号",
               "name": "sendAccount",
-              "source": "/account/queryByChannelType?channelType=30",
+              "source": "/account/queryByChannelType/30",
               "visibleOn": "this.sendChannel == 30",
-              "description": "&nbsp&nbsp&nbsp<font color=\"#990000\">Auto → 根据类型走系统流量配置</font>",
+              "description": "&nbsp&nbsp&nbsp<font color=\"#990000\">Auto ➢ 根据类型走系统流量配置</font>",
               "clearValueOnHidden": false,
               "required": true,
               "size": "lg"
@@ -226,7 +228,7 @@
               "type": "select",
               "label": "服务号账号",
               "name": "sendAccount",
-              "source": "/account/queryByChannelType?channelType=50",
+              "source": "/account/queryByChannelType/50",
               "visibleOn": "this.sendChannel == 50",
               "clearValueOnHidden": false,
               "required": true,
@@ -297,9 +299,9 @@
             },
             {
               "type": "select",
-              "label": "企业微信（机器人）",
+              "label": "企业微信「机器人」",
               "name": "sendAccount",
-              "source": "/account/queryByChannelType?channelType=100",
+              "source": "/account/queryByChannelType/100",
               "visibleOn": "this.sendChannel == 100",
               "clearValueOnHidden": false,
               "required": true,
@@ -424,7 +426,7 @@
               "type": "select",
               "label": "小程序账号",
               "name": "sendAccount",
-              "source": "/account/queryByChannelType?channelType=60",
+              "source": "/account/queryByChannelType/60",
               "visibleOn": "this.sendChannel == 60",
               "clearValueOnHidden": false,
               "required": true,
@@ -455,13 +457,13 @@
               "type": "service",
               "schemaApi": "/miniProgram/detailTemplate?id=${sendAccount}&wxTemplateId=${templateId}",
               "visibleOn": "this.sendChannel == 60",
-              "description": "<font color=\"#990000\">请点击【新增】填入文案</font>"
+              "description": "<font color=\"#990000\">请点击「新增」填入文案</font>"
             },
             {
               "type": "select",
               "label": "飞书机器人",
               "name": "sendAccount",
-              "source": "/account/queryByChannelType?channelType=110",
+              "source": "/account/queryByChannelType/110",
               "visibleOn": "this.sendChannel == 110",
               "clearValueOnHidden": false,
               "required": true,
@@ -506,7 +508,7 @@
               "type": "select",
               "label": "推送账号",
               "name": "sendAccount",
-              "source": "/account/queryByChannelType?channelType=20",
+              "source": "/account/queryByChannelType/20",
               "visibleOn": "this.sendChannel == 20",
               "clearValueOnHidden": false,
               "required": true,
@@ -547,7 +549,7 @@
               "type": "select",
               "label": "邮件账号",
               "name": "sendAccount",
-              "source": "/account/queryByChannelType?channelType=40",
+              "source": "/account/queryByChannelType/40",
               "visibleOn": "this.sendChannel == 40",
               "clearValueOnHidden": false,
               "required": true,
@@ -586,7 +588,7 @@
               "type": "select",
               "label": "企业微信应用",
               "name": "sendAccount",
-              "source": "/account/queryByChannelType?channelType=70",
+              "source": "/account/queryByChannelType/70",
               "visibleOn": "this.sendChannel == 70",
               "clearValueOnHidden": false,
               "required": true,
@@ -758,7 +760,7 @@
               "type": "select",
               "label": "钉钉群机器人",
               "name": "sendAccount",
-              "source": "/account/queryByChannelType?channelType=80",
+              "source": "/account/queryByChannelType/80",
               "visibleOn": "this.sendChannel == 80",
               "clearValueOnHidden": false,
               "required": true,
@@ -768,7 +770,7 @@
               "type": "select",
               "label": "钉钉应用",
               "name": "sendAccount",
-              "source": "/account/queryByChannelType?channelType=90",
+              "source": "/account/queryByChannelType/90",
               "visibleOn": "this.sendChannel == 90",
               "clearValueOnHidden": false,
               "required": true,
@@ -780,35 +782,35 @@
               "type": "radios",
               "options": [
                 {
-                  "label": "文本(text)",
+                  "label": "文本「text」",
                   "value": "10"
                 },
                 {
-                  "label": "语音(voice)",
+                  "label": "语音「voice」",
                   "value": "20"
                 },
                 {
-                  "label": "文件(file)",
+                  "label": "文件「file」",
                   "value": "60"
                 },
                 {
-                  "label": "markdown类型(markdown)",
+                  "label": "markdown类型「markdown」",
                   "value": "80"
                 },
                 {
-                  "label": "图片(image)",
+                  "label": "图片「image」",
                   "value": "100"
                 },
                 {
-                  "label": "链接消息(link)",
+                  "label": "链接消息「link」",
                   "value": "110"
                 },
                 {
-                  "label": "卡片消息(action_card)",
+                  "label": "卡片消息「action_card」",
                   "value": "120"
                 },
                 {
-                  "label": "OA消息(oa)",
+                  "label": "OA消息「oa」",
                   "value": "130"
                 }
               ],
@@ -823,23 +825,23 @@
               "type": "radios",
               "options": [
                 {
-                  "label": "文本(text)",
+                  "label": "文本「text」",
                   "value": "10"
                 },
                 {
-                  "label": "图文(FeedCard)",
+                  "label": "图文「FeedCard」",
                   "value": "40"
                 },
                 {
-                  "label": "markdown类型(markdown)",
+                  "label": "markdown类型「markdown」",
                   "value": "80"
                 },
                 {
-                  "label": "链接消息(links)",
+                  "label": "链接消息「links」",
                   "value": "110"
                 },
                 {
-                  "label": "卡片消息(actionCard)",
+                  "label": "卡片消息「actionCard」",
                   "value": "120"
                 }
               ],
