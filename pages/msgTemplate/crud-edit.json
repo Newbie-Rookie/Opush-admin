@@ -20,6 +20,7 @@
             {
               "type": "input-text",
               "label": "模板名称",
+              "placeholder": "请输入「模板名称」",
               "name": "name",
               "size": "md",
               "required": true
@@ -27,10 +28,12 @@
             {
               "type": "input-text",
               "label": "模板业务方",
+              "placeholder": "请输入「模板业务方」",
               "name": "proposer",
               "size": "md",
               "mode": "",
-              "description": ""
+              "description": "",
+              "required": true
             },
             {
               "type": "radios",
@@ -39,39 +42,45 @@
               "options": [
                 {
                   "label": "用户ID",
-                  "value": "10"
+                  "value": "10",
+                  "visibleOn": "0"
                 },
                 {
                   "label": "设备号",
-                  "value": "20"
+                  "value": "20",
+                  "visibleOn": "0"
                 },
                 {
                   "label": "手机号",
                   "value": "30"
                 },
                 {
-                  "label": "openID",
-                  "value": "40"
-                },
-                {
                   "label": "邮箱地址",
                   "value": "50"
                 },
                 {
+                  "label": "openId「小程序 / 服务号」",
+                  "value": "40"
+                },
+                {
                   "label": "企业微信userId",
-                  "value": "60"
+                  "value": "60",
+                  "visibleOn": "0"
                 },
                 {
                   "label": "钉钉userId",
-                  "value": "70"
+                  "value": "70",
+                  "visibleOn": "0"
                 },
                 {
                   "label": "推送通知栏cid",
-                  "value": "80"
+                  "value": "80",
+                  "visibleOn": "0"
                 },
                 {
                   "label": "飞书userId",
-                  "value": "90"
+                  "value": "90",
+                  "visibleOn": "0"
                 }
               ],
               "required": true
@@ -129,11 +138,11 @@
               "name": "timedSendCrowdFilePath",
               "value": "${timedSendCrowdFilePath}",
               "visibleOn": "this.templateType == 10",
-              "required": true,
-              "label": "人群文件路径",
               "clearValueOnHidden": false,
               "visible": "",
+              "required": true,
               "readOnly": true,
+              "label": "人群文件路径",
               "placeholder": "上传文件成功后自动填写「无须手动编辑」"
             }
           ],
@@ -152,7 +161,8 @@
               "options": [
                 {
                   "label": "PUSH通知栏",
-                  "value": "20"
+                  "value": "20",
+                  "visibleOn": "0"
                 },
                 {
                   "label": "短信",
@@ -163,44 +173,49 @@
                   "value": "40"
                 },
                 {
-                  "label": "微信服务号「模板消息」",
-                  "value": "50"
-                },
-                {
                   "label": "微信小程序「订阅消息」",
                   "value": "60"
                 },
                 {
+                  "label": "微信服务号「模板消息」",
+                  "value": "50"
+                },
+                {
                   "label": "企业微信「应用消息」",
-                  "value": "70"
+                  "value": "70",
+                  "visibleOn": "0"
                 },
                 {
-                  "label": "企业微信「机器人」",
-                  "value": "100"
+                  "label": "企业微信「群机器人」",
+                  "value": "100",
+                  "visibleOn": "0"
                 },
                 {
-                  "label": "钉钉群机器人",
-                  "value": "80"
+                  "label": "钉钉「群机器人」",
+                  "value": "80",
+                  "visibleOn": "0"
                 },
                 {
-                  "label": "钉钉工作消息",
-                  "value": "90"
+                  "label": "钉钉「工作消息」",
+                  "value": "90",
+                  "visibleOn": "0"
                 },
                 {
-                  "label": "飞书机器人",
-                  "value": "110"
+                  "label": "飞书「群机器人」",
+                  "value": "110",
+                  "visibleOn": "0"
                 }
               ],
               "required": true
             },
             {
               "type": "select",
-              "label": "发送账号",
+              "label": "短信账号",
               "name": "sendAccount",
               "source": "/account/queryByChannelType/30",
               "visibleOn": "this.sendChannel == 30",
               "description": "&nbsp&nbsp&nbsp<font color=\"#990000\">Auto ➢ 根据类型走系统流量配置</font>",
-              "clearValueOnHidden": false,
+              "clearValueOnHidden": true,
               "required": true,
               "size": "lg"
             },
@@ -213,7 +228,7 @@
               "mode": "",
               "size": "lg",
               "clearValueOnHidden": false,
-              "placeholder": "可用占位符{$content}"
+              "placeholder": "可用占位符{$content}「暂支持6位验证码」"
             },
             {
               "type": "input-text",
@@ -222,7 +237,9 @@
               "visibleOn": "this.sendChannel == 30",
               "size": "lg",
               "clearValueOnHidden": false,
-              "placeholder": "可用占位符{$url}"
+              "readOnly": true,
+              "placeholder": "可用占位符{$url}，最好输入「短链接」",
+              "placeholder": "暂不支持"
             },
             {
               "type": "select",
@@ -230,7 +247,7 @@
               "name": "sendAccount",
               "source": "/account/queryByChannelType/50",
               "visibleOn": "this.sendChannel == 50",
-              "clearValueOnHidden": false,
+              "clearValueOnHidden": true,
               "required": true,
               "size": "lg"
             },
@@ -240,7 +257,7 @@
               "name": "templateId",
               "source": "/officialAccount/template/list?id=${sendAccount}",
               "visibleOn": "this.sendChannel == 50",
-              "clearValueOnHidden": false,
+              "clearValueOnHidden": true,
               "required": true,
               "size": "lg",
               "initFetchOn": "data.sendAccount"
@@ -252,11 +269,11 @@
               "visibleOn": "this.sendChannel == 50",
               "options": [
                 {
-                  "label": "HTTP链接",
+                  "label": "Http / Https链接",
                   "value": "10"
                 },
                 {
-                  "label": "小程序",
+                  "label": "微信小程序",
                   "value": "20"
                 }
               ],
@@ -270,7 +287,7 @@
               "visibleOn": "this.sendChannel == 50 && this.linkType==10",
               "size": "lg",
               "clearValueOnHidden": false,
-              "placeholder": "可用占位符{$url}"
+              "placeholder": "可用占位符{$url}「海外帐号暂无跳转能力」"
             },
             {
               "type": "select",
@@ -278,24 +295,22 @@
               "name": "miniProgramId",
               "required": true,
               "visibleOn": "this.sendChannel == 50 && this.linkType==20",
-              "options": [
-                {
-                  "label": "暂无可用小程序",
-                  "value": "10"
-                }
-              ],
+              "readOnly": true,
+              "placeholder": "暂不支持",
               "size": "lg",
-              "clearValueOnHidden": false
+              "clearValueOnHidden": true
             },
             {
               "type": "input-text",
-              "label": "发送链接",
+              "label": "跳转链接",
               "name": "path",
               "required": true,
               "visibleOn": "this.sendChannel == 50 && this.linkType==20",
               "size": "lg",
               "clearValueOnHidden": false,
-              "placeholder": "可用占位符{$url}"
+              "readOnly": true,
+              "placeholder": "可用占位符{$url}",
+              "placeholder": "可用占位符{$url}「暂不支持」"
             },
             {
               "type": "select",
@@ -303,7 +318,7 @@
               "name": "sendAccount",
               "source": "/account/queryByChannelType/100",
               "visibleOn": "this.sendChannel == 100",
-              "clearValueOnHidden": false,
+              "clearValueOnHidden": true,
               "required": true,
               "size": "lg"
             },
@@ -420,7 +435,8 @@
             {
               "type": "service",
               "schemaApi": "/officialAccount/detailTemplate?id=${sendAccount}&wxTemplateId=${templateId}",
-              "visibleOn": "this.sendChannel == 50"
+              "visibleOn": "this.sendChannel == 50",
+              "description": "<font color=\"#990000\">请点击「新增」填入文案</font>"
             },
             {
               "type": "select",
@@ -428,7 +444,7 @@
               "name": "sendAccount",
               "source": "/account/queryByChannelType/60",
               "visibleOn": "this.sendChannel == 60",
-              "clearValueOnHidden": false,
+              "clearValueOnHidden": true,
               "required": true,
               "size": "lg"
             },
@@ -438,20 +454,20 @@
               "name": "templateId",
               "source": "/miniProgram/template/list?id=${sendAccount}",
               "visibleOn": "this.sendChannel == 60",
-              "clearValueOnHidden": false,
+              "clearValueOnHidden": true,
               "required": true,
               "size": "lg",
               "initFetchOn": "data.sendAccount"
             },
             {
               "type": "input-text",
-              "label": "发送链接",
+              "label": "点击跳转链接",
               "name": "page",
               "required": true,
-              "visibleOn": "this.sendChannel == 60 ",
+              "visibleOn": "this.sendChannel == 60",
               "size": "lg",
               "clearValueOnHidden": false,
-              "placeholder": "可用占位符{$url}"
+              "placeholder": "可用占位符{$url}「小程序内部页面」"
             },
             {
               "type": "service",
@@ -465,7 +481,7 @@
               "name": "sendAccount",
               "source": "/account/queryByChannelType/110",
               "visibleOn": "this.sendChannel == 110",
-              "clearValueOnHidden": false,
+              "clearValueOnHidden": true,
               "required": true,
               "size": "lg"
             },
@@ -510,7 +526,7 @@
               "name": "sendAccount",
               "source": "/account/queryByChannelType/20",
               "visibleOn": "this.sendChannel == 20",
-              "clearValueOnHidden": false,
+              "clearValueOnHidden": true,
               "required": true,
               "size": "lg"
             },
@@ -547,11 +563,12 @@
             },
             {
               "type": "select",
-              "label": "邮件账号",
+              "label": "邮箱账号",
               "name": "sendAccount",
               "source": "/account/queryByChannelType/40",
               "visibleOn": "this.sendChannel == 40",
-              "clearValueOnHidden": false,
+              "description": "&nbsp&nbsp&nbsp<font color=\"#990000\">Auto ➢ 系统动态流量配置</font>",
+              "clearValueOnHidden": true,
               "required": true,
               "size": "lg"
             },
@@ -573,11 +590,11 @@
               "visibleOn": "this.sendChannel == 40",
               "size": "lg",
               "clearValueOnHidden": false,
-              "placeholder": "可用占位符{$content}，可输入HTML"
+              "placeholder": "可用占位符{$content}「支持HTML」"
             },
             {
               "type": "input-text",
-              "label": "附件链接",
+              "label": "远程附件链接",
               "name": "url",
               "visibleOn": "this.sendChannel == 40",
               "size": "lg",
@@ -590,7 +607,7 @@
               "name": "sendAccount",
               "source": "/account/queryByChannelType/70",
               "visibleOn": "this.sendChannel == 70",
-              "clearValueOnHidden": false,
+              "clearValueOnHidden": true,
               "required": true,
               "size": "lg"
             },
@@ -762,7 +779,7 @@
               "name": "sendAccount",
               "source": "/account/queryByChannelType/80",
               "visibleOn": "this.sendChannel == 80",
-              "clearValueOnHidden": false,
+              "clearValueOnHidden": true,
               "required": true,
               "size": "lg"
             },
@@ -772,7 +789,7 @@
               "name": "sendAccount",
               "source": "/account/queryByChannelType/90",
               "visibleOn": "this.sendChannel == 90",
-              "clearValueOnHidden": false,
+              "clearValueOnHidden": true,
               "required": true,
               "size": "lg"
             },
@@ -1150,8 +1167,7 @@
           "md5": "${md5}",
           "base64": "${base64}",
           "articles": "${articles}",
-          "description": "${description}",
-          "isDeleted": "${isDeleted}"
+          "description": "${description}"
         }
       },
       "initApi": "/messageTemplate/query/${params.id}"

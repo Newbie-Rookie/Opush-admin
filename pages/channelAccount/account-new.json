@@ -18,31 +18,57 @@
           "collapsable": true,
           "body": [
             {
-              "type": "input-text",
-              "label": "账号名",
-              "name": "name",
-              "size": "md",
-              "placeholder": "请输入「渠道账号名」",
-              "required": true
-            },
-            {
               "name": "sendChannel",
               "label": "发送渠道",
               "type": "radios",
               "options": [
                 {
+                  "label": "PUSH通知栏",
+                  "value": "20",
+                  "visibleOn": "0"
+                },
+                {
                   "label": "微信小程序「订阅消息」",
                   "value": "60"
                 },
                 {
-                  "label": "企业微信「应用消息」",
-                  "value": "70"
+                  "label": "微信服务号「模板消息」",
+                  "value": "50"
                 },
                 {
-                  "label": "企业微信「机器人」",
-                  "value": "100"
+                  "label": "企业微信「应用消息」",
+                  "value": "70",
+                  "visibleOn": "0"
+                },
+                {
+                  "label": "企业微信「群机器人」",
+                  "value": "100",
+                  "visibleOn": "0"
+                },
+                {
+                  "label": "钉钉「群机器人」",
+                  "value": "80",
+                  "visibleOn": "0"
+                },
+                {
+                  "label": "钉钉「工作消息」",
+                  "value": "90",
+                  "visibleOn": "0"
+                },
+                {
+                  "label": "飞书「群机器人」",
+                  "value": "110",
+                  "visibleOn": "0"
                 }
               ],
+              "required": true
+            },
+            {
+              "type": "input-text",
+              "label": "账号名",
+              "name": "name",
+              "size": "md",
+              "placeholder": "请输入「渠道账号名」",
               "required": true
             },
             {
@@ -69,13 +95,8 @@
                   },
                   {
                     "type": "tpl",
-                    "visibleOn": "this.sendChannel == 70",
-                    "tpl": "<font color=\"#990000\">参数值获取方法 ➢ https://blog.csdn.net/u013818205/article/details/129527780<font><br><font color=\"#6d28d9\">{<br>&nbsp&nbsp&nbsp&nbsp&nbsp\"corpId\" : \"23423423\",<br>&nbsp&nbsp&nbsp&nbsp&nbsp\"corpSecret\" : \"-234324234\",<br>&nbsp&nbsp&nbsp&nbsp&nbsp\"agentId\" : 1000002,<br>&nbsp&nbsp&nbsp&nbsp&nbsp\"token\" : \"234234\",<br>&nbsp&nbsp&nbsp&nbsp&nbsp\"aesKey\" : \"23423423\"<br>}<font>"
-                  },
-                  {
-                    "type": "tpl",
-                    "visibleOn": "this.sendChannel == 100",
-                    "tpl": "<font color=\"#990000\">参数值获取方法 ➢ https://blog.csdn.net/u013818205/article/details/129527780<font><br><font color=\"#6d28d9\">{<br>&nbsp&nbsp&nbsp&nbsp&nbsp\"webhook\" : \"https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=5699eac1-b073-47da-9e97-xxxxxxxx\"<br>}<font>"
+                    "visibleOn": "this.sendChannel == 50",
+                    "tpl": "<font color=\"#990000\">平台接入 ➢ https://developers.weixin.qq.com/doc/offiaccount/Basic_Information/Access_Overview.html<br>参数值获取方法 ➢ https://blog.csdn.net/u013818205/article/details/129527780<font><br><font color=\"#6d28d9\">{<br>&nbsp&nbsp&nbsp&nbsp&nbsp\"appId\" : \"wx993xxxxxxx2ba86\",<br>&nbsp&nbsp&nbsp&nbsp&nbsp\"appSecret\" : \"7ffffcc59e1xxxxxxxxxxxx0650ac1ada7\"<br>}<font>"
                   }
                 ]
               }

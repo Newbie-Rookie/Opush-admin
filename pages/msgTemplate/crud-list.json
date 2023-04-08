@@ -58,7 +58,8 @@
               },
               {
                 "label": "PUSH通知栏",
-                "value": "20"
+                "value": "20",
+                "visibleOn": "0"
               },
               {
                 "label": "短信",
@@ -69,32 +70,37 @@
                 "value": "40"
               },
               {
-                "label": "微信服务号「模板消息」",
-                "value": "50"
-              },
-              {
                 "label": "微信小程序「订阅消息」",
                 "value": "60"
               },
               {
+                "label": "微信服务号「模板消息」",
+                "value": "50"
+              },
+              {
                 "label": "企业微信「应用消息」",
-                "value": "70"
+                "value": "70",
+                "visibleOn": "0"
               },
               {
                 "label": "钉钉「群机器人」",
-                "value": "80"
+                "value": "80",
+                "visibleOn": "0"
               },
               {
                 "label": "钉钉「工作消息」",
-                "value": "90"
+                "value": "90",
+                "visibleOn": "0"
               },
               {
-                "label": "企业微信「机器人」",
-                "value": "100"
+                "label": "企业微信「群机器人」",
+                "value": "100",
+                "visibleOn": "0"
               },
               {
-                "label": "飞书「机器人」",
-                "value": "110"
+                "label": "飞书「群机器人」",
+                "value": "110",
+                "visibleOn": "0"
               }
             ],
             "size": "md"
@@ -178,8 +184,8 @@
             "70": "企业微信「应用消息」",
             "80": "钉钉「群机器人」",
             "90": "钉钉「工作消息」",
-            "100": "企业微信「机器人」",
-            "110": "飞书「机器人」"
+            "100": "企业微信「群机器人」",
+            "110": "飞书「群机器人」"
           }
         },
         {
@@ -245,7 +251,7 @@
                           "label": "接收者",
                           "placeholder": "「多个」接收者则用「逗号」隔开",
                           "required": true,
-                          "description": "<font color=\"#990000\">该模板存在占位符，请点击「新增」并填入文案后进行测试下发！</font>"
+                          "description": "<font color=\"#990000\">➢ 若模板存在「占位符」，则「新增」文案后再执行测试操作</font>"
                         },
                         {
                           "type": "service",
@@ -274,7 +280,7 @@
                   "label": "启动",
                   "level": "success",
                   "actionType": "ajax",
-                  "confirmText": "您确认要启动吗?",
+                  "confirmText": "您确认要进行启动操作吗?",
                   "api": "post:/messageTemplate/start/$id",
                   "visibleOn": "this.templateType==10 && this.msgStatus!=30"
                 },
@@ -283,7 +289,7 @@
                   "label": "停止",
                   "level": "success",
                   "actionType": "ajax",
-                  "confirmText": "您确认要暂停吗?",
+                  "confirmText": "您确认要进行暂停操作吗?",
                   "api": "post:/messageTemplate/stop/$id",
                   "visibleOn": "this.templateType==10 && this.msgStatus==30"
                 },
@@ -292,7 +298,7 @@
                   "label": "复制",
                   "level": "warning",
                   "actionType": "ajax",
-                  "confirmText": "您确认要复制吗?",
+                  "confirmText": "您确认要进行复制操作吗?",
                   "api": "post:/messageTemplate/copy/$id"
                 },
                 {
@@ -300,15 +306,16 @@
                   "label": "撤回",
                   "level": "danger",
                   "actionType": "ajax",
-                  "confirmText": "您确认要撤回吗?",
-                  "api": "post:/messageTemplate/recall/$id"
+                  "confirmText": "您确认要进行撤回操作吗?",
+                  "api": "post:/messageTemplate/recall/$id",
+                  "visibleOn": "0"
                 },
                 {
                   "type": "button",
                   "label": "删除",
                   "level": "danger",
                   "actionType": "ajax",
-                  "confirmText": "您确认要删除吗?",
+                  "confirmText": "您确认要进行删除操作吗?",
                   "api": "delete:/messageTemplate/delete/$id"
                 }
               ]

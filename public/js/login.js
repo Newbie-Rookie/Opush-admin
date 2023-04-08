@@ -6,9 +6,9 @@ function tips(obj, tip) {
 
 $(function(){
     // 请求后端的url
-    localStorage.setItem("backend_url", "http://localhost:8080");
-    // localStorage.setItem("backend_url", "http://110.40.150.166:8080");
-    // localStorage.setItem("front_url", "http://110.40.150.166:3000");
+    localStorage.setItem("backend_url", "http://localhost:80");
+    // localStorage.setItem("backend_url", "http://43.143.3.23:80");
+    // localStorage.setItem("front_url", "http://43.143.3.23:3000");
 
     // 最终用于登录的手机号
     var finPhone = "";

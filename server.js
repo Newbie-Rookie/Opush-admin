@@ -8,8 +8,8 @@ const logger = require('morgan');
 const request = require('request');
 const LocalStorage = require('node-localstorage').LocalStorage;
 localStorage = new LocalStorage('./scratch');
-localStorage.setItem('backend_url', 'http://localhost:8080');
-// localStorage.setItem('backend_url', 'http://110.40.150.166:8080');
+localStorage.setItem('backend_url', 'http://localhost:80');
+// localStorage.setItem('backend_url', 'http://43.143.3.23:80');
 
 const app = express();
 

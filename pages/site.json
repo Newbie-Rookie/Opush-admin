@@ -100,23 +100,6 @@
             ]
           }
         ]
-      },
-      {
-        "label": "",
-        "children": [
-          {
-            "label": "素材管理",
-            "icon": "fa fa-cubes",
-            "children": [
-              {
-                "url": "material/upload",
-                "label": "素材上传",
-                "icon": "fa fa-cloud-upload",
-                "schemaApi": "get:/pages/material/material-upload.json"
-              }
-            ]
-          }
-        ]
       }
     ]
   }

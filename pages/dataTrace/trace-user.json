@@ -7,7 +7,6 @@
       "type": "form",
       "target": "my_crud",
       "submitText": "",
-      "mode": "inline",
       "body": [
         {
           "type": "input-text",
@@ -24,6 +23,16 @@
           "description": "",
           "placeholder": "请输入「用户ID」",
           "require": true
+        },
+        {
+          "type": "static",
+          "value": "「用户ID」类型「请点击放大镜查看」",
+          "popOver": {
+            "body": {
+              "type": "tpl",
+              "tpl": "<font color=\"#28a745\">「手机号」➢ 135xxxx3078</br><font color=\"#990000\">「邮箱地址」➢ 117xxxx183@qq.com</font></br><font color=\"#6d28d9\">「微信小程序」➢ o5FIx4xxxxxRPgf-g2jxxxxxf0Kg「openId」<br>「微信服务号」➢ ozQTxxxxxUg2CTE06MgxxxxxY1xk「openId」</font>"
+            }
+          }
         }
       ]
     },

@@ -4,9 +4,93 @@
   "body": [
     {
       "type": "crud",
-      "api": "/account/list",
+      "api": "/account/list?page=${page}&perPage=${perPage}&sendChannel=${sendChannelSearch}",
       "bodyClassName": "panel-default",
+      "syncLocation": false,
       "name": "sample",
+      "footerToolbar": [
+        "switch-per-page",
+        "pagination"
+      ],
+      "filter": {
+        "type": "group",
+        "title": "「检索条件」",
+        "submitText": "",
+        "gap": "lg",
+        "body": [
+          {
+            "type": "select",
+            "name": "sendChannelSearch",
+            "label": "发送渠道「用户提供」",
+            "options": [
+              {
+                "label": "---",
+                "value": ""
+              },
+              {
+                "label": "PUSH通知栏",
+                "value": "20",
+                "visibleOn": "0"
+              },
+              {
+                "label": "微信小程序「订阅消息」",
+                "value": "60"
+              },
+              {
+                "label": "微信服务号「模板消息」",
+                "value": "50",
+                "visibleOn": "0"
+              },
+              {
+                "label": "企业微信「应用消息」",
+                "value": "70"
+              },
+              {
+                "label": "钉钉「群机器人」",
+                "value": "80",
+                "visibleOn": "0"
+              },
+              {
+                "label": "钉钉「工作消息」",
+                "value": "90",
+                "visibleOn": "0"
+              },
+              {
+                "label": "企业微信「群机器人」",
+                "value": "100",
+                "visibleOn": "0"
+              },
+              {
+                "label": "飞书「群机器人」",
+                "value": "110",
+                "visibleOn": "0"
+              }
+            ],
+            "size": "md"
+          },
+          {
+            "label": "",
+            "type": "submit",
+            "level": "light",
+            "icon": "https://suda.cdn.bcebos.com/images%2F2021-01%2Fsearch.svg"
+          },
+          {
+            "label": "重置",
+            "type": "reset",
+            "level": "warning"
+          }
+        ]
+      },
+      "bulkActions": [
+        {
+          "label": "批量删除",
+          "type": "button",
+          "level": "danger",
+          "actionType": "ajax",
+          "api": "delete:/account/delete/$ids",
+          "confirmText": "您确定进行批量删除操作吗?"
+        }
+      ],
       "columns": [
         {
           "name": "id",
