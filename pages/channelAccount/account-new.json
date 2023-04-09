@@ -85,7 +85,7 @@
               "name": "static",
               "type": "static",
               "label": "",
-              "value": "点击放大镜查看「账号配置样例」",
+              "value": "点击「放大镜」查看「账号配置样例」",
               "popOver": {
                 "body": [
                   {
@@ -96,7 +96,7 @@
                   {
                     "type": "tpl",
                     "visibleOn": "this.sendChannel == 50",
-                    "tpl": "<font color=\"#990000\">平台接入 ➢ https://developers.weixin.qq.com/doc/offiaccount/Basic_Information/Access_Overview.html<br>参数值获取方法 ➢ https://blog.csdn.net/u013818205/article/details/129527780<font><br><font color=\"#6d28d9\">{<br>&nbsp&nbsp&nbsp&nbsp&nbsp\"appId\" : \"wx993xxxxxxx2ba86\",<br>&nbsp&nbsp&nbsp&nbsp&nbsp\"appSecret\" : \"7ffffcc59e1xxxxxxxxxxxx0650ac1ada7\"<br>}<font>"
+                    "tpl": "<font color=\"#990000\">参数值获取方法 ➢ https://blog.csdn.net/u013818205/article/details/129527780<font><br><font color=\"#6d28d9\">{<br>&nbsp&nbsp&nbsp&nbsp&nbsp\"appId\" : \"wx993xxxxxxx2ba86\",<br>&nbsp&nbsp&nbsp&nbsp&nbsp\"appSecret\" : \"7ffffcc59e1xxxxxxxxxxxx0650ac1ada7\"<br>}<font>"
                   }
                 ]
               }

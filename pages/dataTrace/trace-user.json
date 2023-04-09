@@ -26,7 +26,7 @@
         },
         {
           "type": "static",
-          "value": "「用户ID」类型「请点击放大镜查看」",
+          "value": "「用户ID」类型「点击放大镜查看」",
           "popOver": {
             "body": {
               "type": "tpl",

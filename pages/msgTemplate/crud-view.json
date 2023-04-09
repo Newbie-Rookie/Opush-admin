@@ -134,7 +134,7 @@
               "clearValueOnHidden": false,
               "visible": "",
               "readOnly": true,
-              "placeholder": "上传文件成功后自动填写「无须手动编辑」"
+              "placeholder": "人群文件文件上传成功后自动填写「无须手动编辑」"
             }
           ],
           "bodyClassName": "r-3x w-full text-lg r font-bold",
@@ -424,11 +424,6 @@
               "placeholder": "可用占位符{$url}「暂不支持」"
             },
             {
-              "type": "service",
-              "schemaApi": "/officialAccount/detailTemplate?id=${sendAccount}&wxTemplateId=${templateId}",
-              "visibleOn": "this.sendChannel == 50"
-            },
-            {
               "type": "select",
               "label": "小程序账号",
               "name": "sendAccount",
@@ -458,12 +453,6 @@
               "size": "lg",
               "clearValueOnHidden": false,
               "placeholder": "可用占位符{$url}「小程序内部页面」"
-            },
-            {
-              "type": "service",
-              "schemaApi": "/miniProgram/detailTemplate?id=${sendAccount}&wxTemplateId=${templateId}",
-              "visibleOn": "this.sendChannel == 60",
-              "description": "<font color=\"#990000\">请点击「新增」填入文案</font>"
             },
             {
               "type": "select",
@@ -581,6 +570,16 @@
               "size": "lg",
               "clearValueOnHidden": false,
               "placeholder": "可用占位符{$content}「支持HTML」"
+            },
+            {
+              "type": "input-text",
+              "name": "localFilePath",
+              "visibleOn": "this.sendChannel == 40",
+              "clearValueOnHidden": false,
+              "visible": "",
+              "readOnly": true,
+              "label": "本地附件路径",
+              "placeholder": "本地附件上传成功后自动填写「无须手动编辑」"
             },
             {
               "type": "input-text",
@@ -1097,6 +1096,48 @@
               "visibleOn": "this.sendChannel == 90 && this.sendType == 130",
               "size": "lg",
               "clearValueOnHidden": false
+            },
+            {
+              "name": "static",
+              "type": "static",
+              "label": "",
+              "value": "点击「放大镜」查看「发送渠道」对应「注意事项」",
+              "popOver": {
+                "body": [
+                  {
+                    "type": "tpl",
+                    "visibleOn": "this.sendChannel == 30",
+                    "tpl": "<font color=\"#990000\">短信发送渠道<font><br><font color=\"#6d28d9\">➢ 暂支持腾讯云 / UniSMS服务商「后续接入更多服务商，提高系统可用性」<br>➢ 暂支持发送6位验证码消息「后续开通通知类和营销类短信服务」<br>➢ 暂支持运营业务方实时 / 定时发送和技术业务方实时发送「后续实现技术业务方定时发送功能」<font>"
+                  },
+                  {
+                    "type": "tpl",
+                    "visibleOn": "this.sendChannel == 40",
+                    "tpl": "<font color=\"#990000\">邮箱发送渠道<font><br><font color=\"#6d28d9\">➢ 已支持通知类、营销类和验证码类邮件<br>➢ 暂支持单远程附件发送「后续实现本地附件发送功能和多附件发送功能」<br>➢ 暂支持运营业务方实时 / 定时发送和技术业务方实时发送「后续实现技术业务方定时发送功能」<font>"
+                  },
+                  {
+                    "type": "tpl",
+                    "visibleOn": "this.sendChannel == 60",
+                    "tpl": "<font color=\"#990000\">微信小程序「订阅消息」发送渠道<font><br><font color=\"#6d28d9\">➢ 暂支持运营业务方实时 / 定时发送和技术业务方实时发送「后续实现技术业务方定时发送功能」<br>➢ 支持订阅消息动态参数「下方订阅消息参数填入{$参数名}，技术业务方调用发送接口时参数名和<br>&nbsp&nbsp&nbsp&nbsp&nbsp参数值作为MessageParam参数中map参数的key-value传入」<font>"
+                  },
+                  {
+                    "type": "tpl",
+                    "visibleOn": "this.sendChannel == 50",
+                    "tpl": "<font color=\"#990000\">微信服务号「模板消息」发送渠道<font><br><font color=\"#6d28d9\">➢ 暂支持运营业务方实时 / 定时发送和技术业务方实时发送「后续实现技术业务方定时发送功能」<br>➢ 支持模板消息动态参数「下方模板消息参数填入{$参数名}，技术业务方调用发送接口时参数名和<br>&nbsp&nbsp&nbsp&nbsp&nbsp参数值作为MessageParam参数中map参数的key-value传入」<font>"
+                  }
+                ]
+              }
+            },
+            {
+              "type": "service",
+              "schemaApi": "/officialAccount/detailTemplate?id=${sendAccount}&wxTemplateId=${templateId}",
+              "visibleOn": "this.sendChannel == 50",
+              "description": "<font color=\"#990000\">请点击「新增」填入文案</font>"
+            },
+            {
+              "type": "service",
+              "schemaApi": "/miniProgram/detailTemplate?id=${sendAccount}&wxTemplateId=${templateId}",
+              "visibleOn": "this.sendChannel == 60",
+              "description": "<font color=\"#990000\">请点击「新增」填入文案</font>"
             }
           ],
           "className": "",

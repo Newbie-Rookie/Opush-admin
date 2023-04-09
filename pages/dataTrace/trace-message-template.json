@@ -26,7 +26,7 @@
         },
         {
           "type": "static",
-          "value": "「业务ID」格式说明「请点击放大镜查看」",
+          "value": "「业务ID」格式说明「点击放大镜查看」",
           "popOver": {
             "body": {
               "type": "tpl",
